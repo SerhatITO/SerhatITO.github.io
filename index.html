@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Serhat Sahin — .NET Backend Engineer | Ankara, Turkey</title>
+    <meta name="description" content="Serhat Sahin — .NET Backend Engineer specializing in Clean Architecture, DDD, multi-tenant systems & scalable enterprise backends. 21.5K+ lines of production C#. Ankara, Turkey.">
+    <meta name="keywords" content="Serhat Sahin, .NET, Backend Developer, ASP.NET Core, C#, Clean Architecture, DDD, Software Engineer, Ankara, Turkey">
+    <meta name="author" content="Serhat Sahin">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://serhatsahin.dev">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Serhat Sahin — .NET Backend Engineer">
+    <meta property="og:description" content="Building enterprise-grade backend systems with ASP.NET Core, Clean Architecture & DDD. 21.5K+ lines of production C#.">
+    <meta property="og:url" content="https://serhatsahin.dev">
+    <meta property="og:site_name" content="Serhat Sahin">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Serhat Sahin — .NET Backend Engineer">
+    <meta name="twitter:description" content="Building enterprise-grade backend systems with ASP.NET Core, Clean Architecture & DDD.">
+
+    <!-- Theme -->
+    <meta name="theme-color" content="#1a1a1a">
+    <meta name="msapplication-TileColor" content="#1a1a1a">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Serhat Sahin",
+        "jobTitle": ".NET Backend Engineer",
+        "url": "https://serhatsahin.dev",
+        "sameAs": [
+            "https://www.linkedin.com/in/serhatsahincoder/",
+            "https://github.com/serhatsahincoder"
+        ],
+        "worksFor": {
+            "@type": "Organization",
+            "name": "TEXIT"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Ankara",
+            "addressCountry": "TR"
+        },
+        "knowsAbout": ["ASP.NET Core", "C#", ".NET", "Clean Architecture", "DDD", "Docker", "Redis", "PostgreSQL", "SignalR"]
+    }
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- LOADER -->
+    <div class="loader" id="loader">
+        <div class="loader__top"><div class="loader__text">.NET Backend Engineer</div></div>
+        <div class="loader__logo">
+            <div class="loader__name">SS</div>
+        </div>
+        <div class="loader__bottom"><div class="loader__text">Clean Architecture &middot; DDD &middot; Scalable Systems</div></div>
+    </div>
+
+    <!-- GRAIN -->
+    <div class="grain"></div>
+
+    <!-- VOILE -->
+    <div class="voile"></div>
+
+    <!-- NAV -->
+    <nav class="nav" aria-label="Main navigation">
+        <a href="/" class="nav__logo-text" aria-label="Serhat Sahin - Home">Serhat Sahin</a>
+        <div class="nav__links">
+            <a href="#work" class="nav__link">work</a>
+            <a href="#about" class="nav__link">about</a>
+            <a href="#skills" class="nav__link">skills</a>
+            <a href="#contact" class="nav__link">contact</a>
+            <span class="nav__line"></span>
+            <a href="https://github.com/serhatsahincoder" target="_blank" class="nav__link">github</a>
+        </div>
+        <a href="#" class="nav__link nav__menu-btn">menu</a>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="menu" id="menu">
+        <div class="menu__top"><a href="#" class="menu__close">Close</a></div>
+        <div class="menu__links">
+            <a href="#work" class="menu__link">work</a>
+            <a href="#about" class="menu__link">about</a>
+            <a href="#skills" class="menu__link">skills</a>
+            <a href="#contact" class="menu__link">contact</a>
+            <a href="https://github.com/serhatsahincoder" target="_blank" class="menu__link">github</a>
+        </div>
+    </div>
+
+    <!-- HERO SLIDER -->
+    <section class="slider">
+        <div class="slider__col slider__col--left">
+            <div class="slider__list" id="sliderLeft">
+                <div class="slider__item"><div class="slide-visual v1">
+                    <div class="slide-code"><span class="code-cm">// texit-access (Dormimy) — 14,704 lines</span><br><span class="code-kw">public class</span> <span class="code-cls">AccessEngine</span><br><span class="code-br">{</span><br>&nbsp;&nbsp;<span class="code-kw">public async</span> Task&lt;<span class="code-cls">AccessResult</span>&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-fn">ProcessRequest</span>(<span class="code-cls">AuthPayload</span> payload)<br>&nbsp;&nbsp;<span class="code-br">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-kw">var</span> rules = <span class="code-kw">await</span> _ruleEvaluator<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.Evaluate(payload.TenantId);<br>&nbsp;&nbsp;<span class="code-br">}</span><br><span class="code-br">}</span></div>
+                    <div class="slide-tag">19 Domains &middot; AccessEngine &middot; RuleEvaluator</div>
+                </div></div>
+                <div class="slider__item"><div class="slide-visual v2">
+                    <div class="slide-code"><span class="code-cm">// M2CRM — 6,876 lines &middot; 98 service files</span><br><span class="code-kw">public class</span> <span class="code-cls">SalesService</span><br><span class="code-br">{</span><br>&nbsp;&nbsp;<span class="code-kw">public async</span> Task&lt;<span class="code-cls">Pipeline</span>&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-fn">CreateDeal</span>(<span class="code-cls">DealRequest</span> req)<br>&nbsp;&nbsp;<span class="code-br">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-kw">await</span> _billing.ProcessAsync(req);<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-kw">await</span> _unitOfWork.CommitAsync();<br>&nbsp;&nbsp;<span class="code-br">}</span><br><span class="code-br">}</span></div>
+                    <div class="slide-tag">Sales &middot; Billing &middot; Subscription &middot; Multi-tenant</div>
+                </div></div>
+                <div class="slider__item"><div class="slide-visual v3">
+                    <div class="slide-code"><span class="code-cm">// Yurt Yonetimi — Dormitory System</span><br><span class="code-kw">public class</span> <span class="code-cls">VisitorAccessEngine</span><br><span class="code-br">{</span><br>&nbsp;&nbsp;<span class="code-kw">public async</span> Task&lt;<span class="code-cls">PassResult</span>&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-fn">ValidateEntry</span>(<span class="code-cls">VisitorPass</span> pass)<br>&nbsp;&nbsp;<span class="code-br">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-kw">var</span> category = <span class="code-kw">await</span> _rules<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.ResolveCategory(pass);<br>&nbsp;&nbsp;<span class="code-br">}</span><br><span class="code-br">}</span></div>
+                    <div class="slide-tag">Visitor &middot; Pass &middot; Category Rules &middot; Active Dev</div>
+                </div></div>
+                <div class="slider__item"><div class="slide-visual v4">
+                    <div class="slide-code"><span class="code-cm">// 4 SignalR Hubs — Real-time control</span><br><span class="code-kw">await</span> _hubService<br>&nbsp;&nbsp;.Clients.Group(<span class="code-str">"gate-01"</span>)<br>&nbsp;&nbsp;.SendAsync(<span class="code-str">"AccessGranted"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-kw">new</span> { CardId, Timestamp });<br><br><span class="code-cm">// AccessPointHub, TenantAdminHub</span><br><span class="code-cm">// PlatformAdminHub, AiHub</span></div>
+                    <div class="slide-tag">WebSocket &middot; Session Managers &middot; Live Events</div>
+                </div></div>
+                <div class="slider__item"><div class="slide-visual v5">
+                    <div class="slide-code"><span class="code-cm"># docker-compose.server.yml</span><br><span class="code-kw">image:</span> ghcr.io/feedemy/texit-access<br><span class="code-kw">deploy:</span><br>&nbsp;&nbsp;<span class="code-kw">replicas:</span> <span class="code-str">3</span><br>&nbsp;&nbsp;<span class="code-kw">update_config:</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-kw">order:</span> rolling<br><span class="code-cm">// CachedRepository + CacheConfigResolver</span><br><span class="code-cm">// Redis / InMemory hybrid</span></div>
+                    <div class="slide-tag">Docker Swarm &middot; Redis &middot; Decorator Cache</div>
+                </div></div>
+                <div class="slider__item"><div class="slide-visual v6">
+                    <div class="slide-code"><span class="code-cm">// Security + Observability</span><br><span class="code-kw">var</span> encrypted = _factory<br>&nbsp;&nbsp;.GetProvider(tenant.KeyId)<br>&nbsp;&nbsp;.Encrypt(piiData);<br><br><span class="code-kw">builder</span>.Services<br>&nbsp;&nbsp;.AddOpenTelemetry()<br>&nbsp;&nbsp;.WithTracing(t =&gt; t<br>&nbsp;&nbsp;&nbsp;&nbsp;.AddAspNetCore());<br><span class="code-cm">// OTLP -> Grafana Cloud</span></div>
+                    <div class="slide-tag">KVKK/GDPR &middot; Grafana &middot; Serilog &middot; xUnit</div>
+                </div></div>
+            </div>
+        </div>
+        <div class="slider__col slider__col--right">
+            <div class="slider__list" id="sliderRight">
+                <div class="slider__item">
+                    <div class="slide-detail">
+                        <p class="slide-detail__desc">Physical access control system — turnstiles, doors, gates with QR/NFC/Card/Face auth. 19 entity domains including AccessControl, Tenancy, Licensing, Visitor Management, Alerts, Analytics, Sanctions. AccessEngine + RuleEvaluator + DirectionResolver pipeline. Multi-database (PostgreSQL + SQL Server), cross-platform (Windows/Linux/RPi).</p>
+                        <div class="slide-detail__techs">ASP.NET Core &middot; .NET 10 &middot; EF Core &middot; PostgreSQL &middot; SQL Server &middot; Docker Swarm</div>
+                        <div class="slide-detail__stats">14,704 lines C# &middot; 19 domains &middot; Production at TEXIT</div>
+                    </div>
+                </div>
+                <div class="slider__item">
+                    <div class="slide-detail">
+                        <p class="slide-detail__desc">Multi-tenant CRM platform — Customers, Sales pipelines, Billing, Subscriptions, Marketing, Projects, Compliance, Templates. Same Clean Architecture as texit-access. 14 service modules, CachedRepository, encryption, audit logging.</p>
+                        <div class="slide-detail__techs">ASP.NET Core &middot; EF Core &middot; Redis &middot; Repository + UoW &middot; JWT &middot; Multi-tenant</div>
+                        <div class="slide-detail__stats">6,876 lines C# &middot; 98 service files &middot; 14 modules</div>
+                    </div>
+                </div>
+                <div class="slider__item">
+                    <div class="slide-detail">
+                        <p class="slide-detail__desc">Dormitory management extension for texit-access. VisitorAccessEngine with VisitorPass, VisitorCategory, VisitorAccessRule system. Category-based rule mapping for dormitory entry/exit control. Currently in active development.</p>
+                        <div class="slide-detail__techs">ASP.NET Core &middot; Dormimy.Domain &middot; VisitorManagement &middot; SignalR</div>
+                        <div class="slide-detail__stats">Active development &middot; Extending texit-access platform</div>
+                    </div>
+                </div>
+                <div class="slider__item">
+                    <div class="slide-detail">
+                        <p class="slide-detail__desc">4 SignalR hubs — AccessPointHub (gate control), TenantAdminHub, PlatformAdminHub, AiHub. Session managers for card writing, face enrollment, terminal sessions. Custom DormimyEvictionHandler, DormimyUserIdProvider, Hub filters.</p>
+                        <div class="slide-detail__techs">SignalR &middot; WebSocket &middot; JWT &middot; Hub Filters &middot; BLE Token &middot; QR Token</div>
+                        <div class="slide-detail__stats">QR / NFC / Card / Face / BLE auth modes</div>
+                    </div>
+                </div>
+                <div class="slider__item">
+                    <div class="slide-detail">
+                        <p class="slide-detail__desc">Docker Swarm deployment to GHCR. CI/CD via GitHub Actions — build, test, push, rolling deploy. CachedRepository decorator with CacheConfigResolver — per-entity Redis/InMemory hybrid. Auto-invalidation on writes via UnitOfWork.</p>
+                        <div class="slide-detail__techs">Docker Swarm &middot; GHCR &middot; GitHub Actions &middot; Redis &middot; nginx &middot; secrets</div>
+                        <div class="slide-detail__stats">ghcr.io/feedemy/texit-access &middot; Zero-downtime deploys</div>
+                    </div>
+                </div>
+                <div class="slider__item">
+                    <div class="slide-detail">
+                        <p class="slide-detail__desc">Factory-pattern encryption with tenant-scoped keys. PII protection (KVKK/GDPR). OpenTelemetry OTLP to Grafana Cloud. Serilog LoggerMessage source generators. xUnit tests with NSubstitute. Full distributed tracing across hubs, EF, Redis.</p>
+                        <div class="slide-detail__techs">AES &middot; HMAC &middot; OpenTelemetry &middot; Grafana &middot; Serilog &middot; xUnit</div>
+                        <div class="slide-detail__stats">Encryption + Observability + Testing pipeline</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slider__info">
+            <div class="slider__project-name" id="projectName">TEXIT CRM</div>
+            <div class="slider__project-meta">
+                <span id="projectCat">Backend</span>
+                <span class="slider__dot">&middot;</span>
+                <span id="projectCompany">TEXIT</span>
+            </div>
+        </div>
+
+        <div class="slider__nav">
+            <button class="slider__btn" id="prevBtn" aria-label="Previous project"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M13 7H1M1 7L7 1M1 7L7 13" stroke="currentColor" stroke-width="1.5"/></svg></button>
+            <div class="slider__counter" aria-live="polite"><span id="curSlide">01</span> / <span id="totSlides">06</span></div>
+            <button class="slider__btn" id="nextBtn" aria-label="Next project"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="currentColor" stroke-width="1.5"/></svg></button>
+        </div>
+    </section>
+
+    <!-- SCROLLABLE CONTENT -->
+    <div class="scroll-content" id="scrollContent">
+
+        <!-- NUMBERS BAR -->
+        <section class="numbers">
+            <div class="numbers__inner">
+                <div class="number-item"><span class="number-item__val">21.5K+</span><span class="number-item__label">Lines of C#</span></div>
+                <div class="number-item"><span class="number-item__val">3</span><span class="number-item__label">Production Systems</span></div>
+                <div class="number-item"><span class="number-item__val">19</span><span class="number-item__label">Entity Domains</span></div>
+                <div class="number-item"><span class="number-item__val">98+</span><span class="number-item__label">Service Files</span></div>
+                <div class="number-item"><span class="number-item__val">4</span><span class="number-item__label">SignalR Hubs</span></div>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section class="section" id="about">
+            <div class="section__inner section__two-col">
+                <div class="section__left">
+                    <div class="section__label">About</div>
+                    <h2 class="section__title">Serhat<br>Sahin</h2>
+                    <p class="section__subtitle">.NET Backend Engineer</p>
+                </div>
+                <div class="section__right">
+                    <p class="section__body">I architect and build enterprise-grade backend systems with ASP.NET Core, following Clean Architecture and Domain-Driven Design principles. 21,500+ lines of production C# across three systems.</p>
+                    <p class="section__body">At TEXIT, I built texit-access (physical access control, 14.7K lines), M2CRM (multi-tenant CRM, 6.8K lines), and currently developing a dormitory management system — handling everything from domain modeling and encryption to Docker Swarm deployment and Grafana observability.</p>
+                    <div class="meta-grid">
+                        <div class="meta-item"><span class="meta-label">Education</span><span class="meta-value">OSTiM Technical University<br>Software Engineering, 2021-2025<br>GPA 3.00</span></div>
+                        <div class="meta-item"><span class="meta-label">Location</span><span class="meta-value">Ankara, Turkey</span></div>
+                        <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value">Open to work<br>On-site / Hybrid / Remote</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section class="section section--dark" id="skills">
+            <div class="section__inner">
+                <div class="section__label">Tech Stack</div>
+                <h2 class="section__title">What I<br>work with</h2>
+                <div class="skills-grid">
+                    <div class="skill-group">
+                        <h3 class="skill-group__title">Core — .NET Backend</h3>
+                        <div class="skill-tags"><span>C#</span><span>.NET 10</span><span>ASP.NET Core</span><span>Entity Framework Core</span><span>Clean Architecture</span><span>DDD</span><span>CQRS</span><span>Repository + UoW</span><span>REST APIs</span><span>JWT Auth</span><span>KVKK/GDPR</span></div>
+                    </div>
+                    <div class="skill-group">
+                        <h3 class="skill-group__title">Data, Infra & DevOps</h3>
+                        <div class="skill-tags"><span>PostgreSQL</span><span>SQL Server</span><span>Redis</span><span>SignalR</span><span>Docker</span><span>Docker Swarm</span><span>GitHub Actions</span><span>CI/CD</span><span>OpenTelemetry</span><span>Serilog</span><span>xUnit</span></div>
+                    </div>
+                    <div class="skill-group">
+                        <h3 class="skill-group__title">Also Experienced</h3>
+                        <div class="skill-tags"><span>Python</span><span>C/C++</span><span>Flutter / Dart</span><span>Blazor / WASM</span><span>Machine Learning</span><span>Arduino / Embedded</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section class="section" id="experience">
+            <div class="section__inner">
+                <div class="section__label">Career</div>
+                <h2 class="section__title">Experience</h2>
+                <div class="timeline">
+                    <a href="#" class="timeline__item">
+                        <div class="timeline__left"><span class="timeline__date">Dec 2025 — Present</span><span class="timeline__badge">Current</span></div>
+                        <div class="timeline__right"><span class="timeline__role">Software Engineer Backend Developer</span><span class="timeline__company">TEXIT &middot; Full-time &middot; Hybrid</span><span class="timeline__desc">Built texit-access (Dormimy) — physical access control system. 14.7K+ lines C#, multi-tenant, Docker Swarm, Grafana.</span></div>
+                    </a>
+                    <a href="#" class="timeline__item">
+                        <div class="timeline__left"><span class="timeline__date">Feb — Jun 2025</span></div>
+                        <div class="timeline__right"><span class="timeline__role">Software Engineer Intern</span><span class="timeline__company">Utarit Bilisim &middot; On-site</span><span class="timeline__desc">Test Engineer + .NET Developer. Built SoliNova (Flutter). Automated testing with Appium.</span></div>
+                    </a>
+                    <a href="#" class="timeline__item">
+                        <div class="timeline__left"><span class="timeline__date">Jan — Feb 2025</span></div>
+                        <div class="timeline__right"><span class="timeline__role">Software Engineer Intern</span><span class="timeline__company">AVS Muhendislik &middot; Hybrid</span><span class="timeline__desc">Embedded systems — injector pump, blood serum heater. Arduino + C++ hardware integration.</span></div>
+                    </a>
+                    <a href="#" class="timeline__item">
+                        <div class="timeline__left"><span class="timeline__date">Dec 2022 — Jul 2023</span></div>
+                        <div class="timeline__right"><span class="timeline__role">Software Engineer Intern</span><span class="timeline__company">QUAVIS Aviation Solutions &middot; Hybrid</span><span class="timeline__desc">Blazor WebAssembly app for aviation. Interactive UI with .NET backend.</span></div>
+                    </a>
+                    <a href="#" class="timeline__item">
+                        <div class="timeline__left"><span class="timeline__date">Jun — Jul 2022</span></div>
+                        <div class="timeline__right"><span class="timeline__role">Software Engineer Intern</span><span class="timeline__company">Ikartu Dinamik &middot; Remote</span><span class="timeline__desc">C/C++ project development.</span></div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="section section--dark section--contact" id="contact">
+            <div class="section__inner">
+                <div class="section__label">Get in touch</div>
+                <h2 class="section__title contact__title">Let's build<br>something<br>together.</h2>
+                <div class="contact-links">
+                    <a href="mailto:serhatsahincoder@gmail.com" class="contact-link">
+                        <span class="contact-link__label">Email</span>
+                        <span class="contact-link__value">serhatsahincoder@gmail.com</span>
+                        <span class="contact-link__arrow">&nearr;</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/serhatsahincoder/" target="_blank" class="contact-link">
+                        <span class="contact-link__label">LinkedIn</span>
+                        <span class="contact-link__value">/in/serhatsahincoder</span>
+                        <span class="contact-link__arrow">&nearr;</span>
+                    </a>
+                    <a href="https://github.com/serhatsahincoder" target="_blank" class="contact-link">
+                        <span class="contact-link__label">GitHub</span>
+                        <span class="contact-link__value">serhatsahincoder</span>
+                        <span class="contact-link__arrow">&nearr;</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="site-footer">
+            <span>&copy; 2026 Serhat Sahin</span>
+            <span class="site-footer__tagline">Crafted with precision</span>
+            <span>Ankara, Turkey</span>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
