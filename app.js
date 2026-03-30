@@ -5,7 +5,7 @@
     const PROJECTS=[
         {name:'texit-access',cat:'Access Control · 14.7K lines',company:'TEXIT'},
         {name:'M2CRM',cat:'Multi-Tenant CRM · 6.8K lines',company:'TEXIT'},
-        {name:'Yurt Yonetimi',cat:'Dormitory System · In Progress',company:'TEXIT'},
+        {name:'Dormimy Management',cat:'Dormitory System · In Progress',company:'TEXIT'},
         {name:'Real-time Hubs',cat:'4 SignalR Hubs',company:'TEXIT'},
         {name:'Caching & Infra',cat:'Redis · Docker Swarm · CI/CD',company:'TEXIT'},
         {name:'Security & Observability',cat:'Encryption · Grafana · OTLP',company:'TEXIT'},

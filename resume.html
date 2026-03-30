@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Serhat Sahin — Resume</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap');
+        *{margin:0;padding:0;box-sizing:border-box}
+
+        body{font-family:'DM Sans',sans-serif;color:#1a1a1a;background:#fff;-webkit-font-smoothing:antialiased}
+        a{color:#1a1a1a;text-decoration:none}
+
+        .resume{max-width:800px;margin:0 auto;padding:48px 40px}
+
+        /* Header */
+        .r-header{display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:24px;border-bottom:2px solid #1a1a1a;margin-bottom:32px}
+        .r-name{font-family:'Playfair Display',serif;font-size:32px;font-weight:700;line-height:1.1}
+        .r-title{font-size:14px;color:#666;margin-top:4px;letter-spacing:.03em}
+        .r-contact{text-align:right;font-size:12px;line-height:1.8;color:#444}
+        .r-contact a{color:#444;border-bottom:1px solid #ccc}
+        .r-contact a:hover{color:#1a1a1a;border-color:#1a1a1a}
+
+        /* Sections */
+        .r-section{margin-bottom:28px}
+        .r-section-title{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#999;margin-bottom:14px;padding-bottom:6px;border-bottom:1px solid #eee}
+
+        /* About */
+        .r-about{font-size:13px;line-height:1.8;color:#444;margin-bottom:28px}
+
+        /* Experience */
+        .r-exp{margin-bottom:20px}
+        .r-exp-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
+        .r-exp-role{font-size:15px;font-weight:700}
+        .r-exp-date{font-size:12px;color:#888;white-space:nowrap}
+        .r-exp-company{font-size:13px;color:#666;margin-bottom:6px}
+        .r-exp-desc{font-size:12.5px;line-height:1.7;color:#444}
+        .r-exp-techs{font-size:11px;color:#888;margin-top:4px}
+
+        /* Skills */
+        .r-skills-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+        .r-skill-group-title{font-size:12px;font-weight:700;margin-bottom:6px}
+        .r-skill-list{font-size:12px;line-height:1.8;color:#444}
+
+        /* Education */
+        .r-edu-header{display:flex;justify-content:space-between;align-items:baseline}
+        .r-edu-school{font-size:14px;font-weight:700}
+        .r-edu-date{font-size:12px;color:#888}
+        .r-edu-detail{font-size:13px;color:#444;margin-top:2px}
+
+        /* Numbers bar */
+        .r-numbers{display:flex;justify-content:space-between;padding:16px 0;margin-bottom:28px;border-top:1px solid #eee;border-bottom:1px solid #eee}
+        .r-num{text-align:center}
+        .r-num-val{font-family:'Playfair Display',serif;font-size:20px;font-weight:700}
+        .r-num-label{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#888;margin-top:2px}
+
+        /* Print */
+        @media print{
+            body{background:#fff}
+            .resume{padding:20px 0}
+            .no-print{display:none!important}
+        }
+
+        /* Top bar */
+        .topbar{position:fixed;top:0;left:0;right:0;background:#1a1a1a;color:#ede7de;display:flex;justify-content:space-between;align-items:center;padding:12px 24px;z-index:100;font-size:13px}
+        .topbar a{color:#ede7de;font-weight:700;transition:opacity .3s}
+        .topbar a:hover{opacity:.6}
+        .topbar-actions{display:flex;gap:16px}
+        .btn-download{background:#dc633f;color:#fff;padding:8px 20px;border-radius:100px;font-size:12px;font-weight:700;letter-spacing:.04em;border:none;cursor:pointer;transition:background .3s}
+        .btn-download:hover{background:#c5532f}
+        .resume-wrapper{padding-top:56px}
+
+        @media(max-width:600px){
+            .resume{padding:32px 20px}
+            .r-header{flex-direction:column;gap:12px}
+            .r-contact{text-align:left}
+            .r-skills-grid{grid-template-columns:1fr}
+            .r-numbers{flex-wrap:wrap;gap:8px}
+            .r-num{min-width:80px}
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="topbar no-print">
+        <a href="/">&larr; Back to portfolio</a>
+        <div class="topbar-actions">
+            <button class="btn-download" onclick="window.print()">Download PDF</button>
+        </div>
+    </div>
+
+    <div class="resume-wrapper">
+        <div class="resume">
+
+            <!-- HEADER -->
+            <div class="r-header">
+                <div>
+                    <div class="r-name">Serhat Sahin</div>
+                    <div class="r-title">.NET Backend Engineer</div>
+                </div>
+                <div class="r-contact">
+                    Ankara, Turkey<br>
+                    <a href="mailto:yusufserhatsahin@mail.com">yusufserhatsahin@mail.com</a><br>
+                    <a href="https://www.linkedin.com/in/serhatsahincoder/">linkedin.com/in/serhatsahincoder</a><br>
+                    <a href="https://github.com/SerhatITO">github.com/SerhatITO</a>
+                </div>
+            </div>
+
+            <!-- NUMBERS -->
+            <div class="r-numbers">
+                <div class="r-num"><div class="r-num-val">21.5K+</div><div class="r-num-label">Lines of C#</div></div>
+                <div class="r-num"><div class="r-num-val">3</div><div class="r-num-label">Production Systems</div></div>
+                <div class="r-num"><div class="r-num-val">19</div><div class="r-num-label">Entity Domains</div></div>
+                <div class="r-num"><div class="r-num-val">98+</div><div class="r-num-label">Service Files</div></div>
+                <div class="r-num"><div class="r-num-val">4</div><div class="r-num-label">SignalR Hubs</div></div>
+            </div>
+
+            <!-- ABOUT -->
+            <p class="r-about">Backend engineer specializing in .NET and scalable enterprise systems. I design and build multi-tenant platforms with Clean Architecture and Domain-Driven Design — from domain modeling and database design to Docker Swarm deployments and observability. 21,500+ lines of production C# across multiple shipped systems.</p>
+
+            <!-- EXPERIENCE -->
+            <div class="r-section">
+                <div class="r-section-title">Experience</div>
+
+                <div class="r-exp">
+                    <div class="r-exp-header">
+                        <span class="r-exp-role">Software Engineer Backend Developer</span>
+                        <span class="r-exp-date">Dec 2025 — Present</span>
+                    </div>
+                    <div class="r-exp-company">TEXIT &middot; Full-time &middot; Hybrid &middot; Ankara</div>
+                    <div class="r-exp-desc">
+                        Designed and built two production backend systems from scratch using ASP.NET Core (.NET 10) with Clean Architecture and DDD:<br><br>
+                        <strong>texit-access (Dormimy)</strong> — Physical access control system for managing turnstiles, doors, and gates via QR/NFC/Card/Face authentication. 14,704 lines of C#, 19 entity domains, 4 SignalR hubs, multi-tenant with tenant-scoped data isolation, licensing validation, rule-based access control, and audit logging. Decorator-based caching (Redis/InMemory), encryption with KVKK/GDPR compliance, Docker Swarm deployment with CI/CD via GitHub Actions, OpenTelemetry observability to Grafana Cloud.<br><br>
+                        <strong>M2CRM</strong> — Multi-tenant CRM platform with customers, sales pipelines, billing, subscriptions, marketing, compliance, and templates. 6,876 lines of C#, 98 service files, 14 modules. Same architectural patterns as texit-access.<br><br>
+                        <strong>Dormimy Management</strong> — Dormitory management system extending texit-access. Currently in active development.
+                    </div>
+                    <div class="r-exp-techs">ASP.NET Core &middot; .NET 10 &middot; EF Core &middot; PostgreSQL &middot; SQL Server &middot; Redis &middot; SignalR &middot; Docker Swarm &middot; GitHub Actions &middot; OpenTelemetry &middot; Serilog &middot; xUnit</div>
+                </div>
+
+                <div class="r-exp">
+                    <div class="r-exp-header">
+                        <span class="r-exp-role">Software Engineer Intern</span>
+                        <span class="r-exp-date">Feb — Jun 2025</span>
+                    </div>
+                    <div class="r-exp-company">Utarit Bilisim &middot; On-site &middot; Ankara</div>
+                    <div class="r-exp-desc">Test Engineer + .NET Developer. Built SoliNova mobile app with Flutter/Dart. Automated testing with Appium-Python. Test documentation, API testing with Postman.</div>
+                    <div class="r-exp-techs">ASP.NET &middot; C# &middot; Flutter &middot; Dart &middot; NUnit &middot; Appium &middot; Postman</div>
+                </div>
+
+                <div class="r-exp">
+                    <div class="r-exp-header">
+                        <span class="r-exp-role">Software Engineer Intern</span>
+                        <span class="r-exp-date">Jan — Feb 2025</span>
+                    </div>
+                    <div class="r-exp-company">AVS Muhendislik &middot; Hybrid &middot; Ankara</div>
+                    <div class="r-exp-desc">Embedded systems development — injector pump, blood serum heater. Circuit board integration with Arduino-based control systems.</div>
+                    <div class="r-exp-techs">Arduino &middot; C++ &middot; Embedded Systems</div>
+                </div>
+
+                <div class="r-exp">
+                    <div class="r-exp-header">
+                        <span class="r-exp-role">Software Engineer Intern</span>
+                        <span class="r-exp-date">Dec 2022 — Jul 2023</span>
+                    </div>
+                    <div class="r-exp-company">QUAVIS Aviation Solutions &middot; Hybrid &middot; Ankara</div>
+                    <div class="r-exp-desc">Blazor WebAssembly web application for aviation solutions. Interactive UI development with .NET backend integration.</div>
+                    <div class="r-exp-techs">Blazor &middot; WebAssembly &middot; ASP.NET &middot; C#</div>
+                </div>
+
+                <div class="r-exp">
+                    <div class="r-exp-header">
+                        <span class="r-exp-role">Software Engineer Intern</span>
+                        <span class="r-exp-date">Jun — Jul 2022</span>
+                    </div>
+                    <div class="r-exp-company">Ikartu Dinamik &middot; Remote</div>
+                    <div class="r-exp-desc">C/C++ project development.</div>
+                    <div class="r-exp-techs">C &middot; C++</div>
+                </div>
+            </div>
+
+            <!-- SKILLS -->
+            <div class="r-section">
+                <div class="r-section-title">Skills</div>
+                <div class="r-skills-grid">
+                    <div>
+                        <div class="r-skill-group-title">Core — .NET Backend</div>
+                        <div class="r-skill-list">C#, .NET 10, ASP.NET Core, Entity Framework Core, Clean Architecture, DDD, CQRS, Repository + UoW, REST APIs, JWT Auth, KVKK/GDPR</div>
+                    </div>
+                    <div>
+                        <div class="r-skill-group-title">Data, Infra & DevOps</div>
+                        <div class="r-skill-list">PostgreSQL, SQL Server, Redis, SignalR, Docker, Docker Swarm, GitHub Actions, CI/CD, OpenTelemetry, Serilog, xUnit</div>
+                    </div>
+                    <div>
+                        <div class="r-skill-group-title">Also Experienced</div>
+                        <div class="r-skill-list">Python, C/C++, Flutter/Dart, Blazor/WASM, Machine Learning, Arduino/Embedded</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EDUCATION -->
+            <div class="r-section">
+                <div class="r-section-title">Education</div>
+                <div class="r-edu-header">
+                    <span class="r-edu-school">OSTiM Technical University</span>
+                    <span class="r-edu-date">2021 — 2025</span>
+                </div>
+                <div class="r-edu-detail">Bachelor's Degree, Computer Software Engineering &middot; GPA 3.00</div>
+                <div class="r-edu-detail" style="color:#888;font-size:12px;margin-top:4px">Costech (Code & OSTIM Tech) — Community Board Member</div>
+            </div>
+
+            <!-- CERTIFICATIONS -->
+            <div class="r-section">
+                <div class="r-section-title">Certifications</div>
+                <div class="r-edu-header">
+                    <span class="r-edu-school">IEEE Python Tutorial</span>
+                    <span class="r-edu-date">Mar 2022</span>
+                </div>
+                <div class="r-edu-detail" style="color:#888;font-size:12px">IEEE &middot; Credential ID: DC-p5D1gVxY</div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
