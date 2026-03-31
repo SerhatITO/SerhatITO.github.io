@@ -85,12 +85,10 @@
             .skill-category{margin-bottom:12px!important}
         }
 
-        /* ── RESPONSIVE ── */
+        /* ── RESPONSIVE — keep desktop layout, just allow horizontal scroll on very small screens ── */
         @media(max-width:700px){
-            .resume{grid-template-columns:1fr;gap:24px 0;padding:32px 20px}
-            .sidebar{flex-direction:row;flex-wrap:wrap;gap:16px;align-items:flex-start}
-            .sidebar>*{flex:1;min-width:140px}
-            .photo{margin:0 auto}
+            .resume{min-width:700px;padding:32px 28px}
+            .resume-wrapper{overflow-x:auto;-webkit-overflow-scrolling:touch}
         }
     </style>
 </head>
@@ -99,7 +97,7 @@
     <!-- TOP BAR -->
     <div class="topbar no-print">
         <a href="index.html">&larr; Back to portfolio</a>
-        <a href="Serhat_Sahin_CV.pdf" download class="btn-download">Download PDF</a>
+        <a href="Serhat_Sahin_CV.pdf" download="Serhat_Sahin_CV.pdf" class="btn-download">Download PDF</a>
     </div>
 
     <div class="resume-wrapper">
