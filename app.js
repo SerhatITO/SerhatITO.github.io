@@ -148,11 +148,34 @@
         mobile.addEventListener('click',e=>{e.preventDefault();syncToggle()});
     }
 
+    /* ═══ CUSTOM CURSOR ═══ */
+    function initCursor(){
+        const c=$('#cursor');
+        if(!c||!window.matchMedia('(pointer:fine)').matches)return;
+        document.addEventListener('mousemove',e=>{
+            c.style.left=e.clientX-5+'px';c.style.top=e.clientY-5+'px';
+            if(!c.classList.contains('is-active'))c.classList.add('is-active');
+        });
+        $$('a,button,.skill-tags span,.slider__btn,.timeline__item,.contact-link').forEach(el=>{
+            el.addEventListener('mouseenter',()=>c.classList.add('is-hover'));
+            el.addEventListener('mouseleave',()=>c.classList.remove('is-hover'));
+        });
+    }
+
+    /* ═══ NAV SCROLL EFFECT ═══ */
+    function initNavScrollEffect(){
+        window.addEventListener('scroll',()=>{
+            $('.nav').classList.toggle('is-scrolled',window.pageYOffset>80);
+        },{passive:true});
+    }
+
     /* ═══ INIT ═══ */
     function init(){
         initSlider();
         initMenu();
         initNavScroll();
+        initCursor();
+        initNavScrollEffect();
         if(window._i18n){window._i18n.init();initLangSync();}
         runLoader();
         setTimeout(initScrollAnims,500);
