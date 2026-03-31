@@ -4,7 +4,7 @@
 const T = {
 en: {
     // Nav & Menu
-    'nav.work':'work','nav.about':'about','nav.skills':'skills','nav.contact':'contact','nav.resume':'resume','nav.menu':'menu','menu.close':'Close',
+    'nav.work':'work','nav.about':'about','nav.skills':'skills','nav.contact':'contact','nav.resume':'resume','nav.projects':'projects','nav.menu':'menu','menu.close':'Close',
 
     // Loader
     'loader.title':'.NET Backend Engineer',
@@ -61,6 +61,27 @@ en: {
     // Footer
     'footer.tagline':'Crafted with precision',
 
+    // Projects page
+    'proj.back':'\u2190 Back to portfolio',
+    'proj.count':'4 projects',
+    'proj.label':'Projects',
+    'proj.title':"What I've<br>built",
+    'proj.subtitle':'Production backend systems built with Clean Architecture, Domain-Driven Design, and .NET \u2014 from domain modeling to deployment.',
+    'proj.production':'Production',
+    'proj.indev':'In Development',
+    'proj.texit.desc':'Physical access control system for managing turnstiles, doors, and gates via QR/NFC/Card/Face authentication. 19 entity domains, 4 SignalR hubs, multi-tenant architecture with real-time event processing.',
+    'proj.crm.desc':'Multi-tenant CRM platform for managing customers, sales pipelines, billing, subscriptions, marketing, and document workflows. 14 service modules with CachedRepository, encryption, and audit logging.',
+    'proj.dormimy.desc':'Dormitory management extension for texit-access. VisitorAccessEngine with category-based rule mapping for dormitory entry/exit control. VisitorPass, VisitorCategory, and VisitorAccessRule system.',
+    'proj.stat.lines':'Lines C#',
+    'proj.stat.domains':'Domains',
+    'proj.stat.services':'Service Files',
+    'proj.stat.modules':'Modules',
+    'proj.stat.activedev':'Active Dev',
+    'proj.freelance':'Freelance',
+    'proj.gravitas.desc':'Premium law firm website for Gravitas Law & Consultancy. Dark luxury aesthetic with gold accents, smooth scroll animations, and responsive design.',
+    'proj.stat.areas':'Practice Areas',
+    'proj.stat.articles':'Articles',
+
     // Slider details
     'slide.1.desc':'Physical access control system \u2014 turnstiles, doors, gates with QR/NFC/Card/Face auth. 19 entity domains including AccessControl, Tenancy, Licensing, Visitor Management, Alerts, Analytics, Sanctions. AccessEngine + RuleEvaluator + DirectionResolver pipeline. Multi-database (PostgreSQL + SQL Server), cross-platform (Windows/Linux/RPi).',
     'slide.1.stats':'14,704 lines C# \u00b7 19 domains \u00b7 Production at TEXIT',
@@ -77,7 +98,7 @@ en: {
 },
 tr: {
     // Nav & Menu
-    'nav.work':'projeler','nav.about':'hakkımda','nav.skills':'yetenekler','nav.contact':'iletişim','nav.resume':'özgeçmiş','nav.menu':'menü','menu.close':'Kapat',
+    'nav.work':'projeler','nav.about':'hakkımda','nav.skills':'yetenekler','nav.contact':'iletişim','nav.resume':'özgeçmiş','nav.projects':'projeler','nav.menu':'menü','menu.close':'Kapat',
 
     // Loader
     'loader.title':'.NET Backend Mühendisi',
@@ -133,6 +154,27 @@ tr: {
 
     // Footer
     'footer.tagline':'Titizlikle tasarlandı',
+
+    // Projects page
+    'proj.back':'\u2190 Portfolyoya dön',
+    'proj.count':'4 proje',
+    'proj.label':'Projeler',
+    'proj.title':'Neler<br>geliştirdim',
+    'proj.subtitle':'Clean Architecture, Domain-Driven Design ve .NET ile geliştirilen üretim backend sistemleri \u2014 domain modelleme\u2019den dağıtıma kadar.',
+    'proj.production':'Üretimde',
+    'proj.indev':'Geliştirmede',
+    'proj.texit.desc':'Turnikeler, kapılar ve bariyerlerin QR/NFC/Kart/Yüz kimlik doğrulaması ile yönetimi için fiziksel erişim kontrol sistemi. 19 entity domain, 4 SignalR hub, gerçek zamanlı olay işleme ile çok kiracılı mimari.',
+    'proj.crm.desc':'Müşteriler, satış pipeline\u2019ları, faturalandırma, abonelikler, pazarlama ve belge iş akışlarının yönetimi için çok kiracılı CRM platformu. CachedRepository, şifreleme ve denetim kaydı ile 14 servis modülü.',
+    'proj.dormimy.desc':'texit-access için yurt yönetim uzantısı. Yurt giriş/çıkış kontrolü için kategori tabanlı kural eşlemesi ile VisitorAccessEngine. VisitorPass, VisitorCategory ve VisitorAccessRule sistemi.',
+    'proj.stat.lines':'Satır C#',
+    'proj.stat.domains':'Domain',
+    'proj.stat.services':'Servis Dosyası',
+    'proj.stat.modules':'Modül',
+    'proj.stat.activedev':'Aktif Geliştirme',
+    'proj.freelance':'Freelance',
+    'proj.gravitas.desc':'Gravitas Hukuk ve Danışmanlık için premium avukat sitesi. Altın aksan detayları, scroll animasyonları ve responsive tasarım ile koyu lüks estetik.',
+    'proj.stat.areas':'Çalışma Alanı',
+    'proj.stat.articles':'Makale',
 
     // Slider details
     'slide.1.desc':'Fiziksel erişim kontrol sistemi \u2014 turnikeler, kapılar, bariyerler ile QR/NFC/Kart/Yüz kimlik doğrulama. AccessControl, Tenancy, Licensing, Visitor Management, Alerts, Analytics, Sanctions dahil 19 entity domain. AccessEngine + RuleEvaluator + DirectionResolver pipeline. Çoklu veritabanı (PostgreSQL + SQL Server), çapraz platform (Windows/Linux/RPi).',

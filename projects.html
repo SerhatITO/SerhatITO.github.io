@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Serhat Sahin — Projects</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%231a1a1a' width='100' height='100' rx='16'/><text x='50' y='68' font-family='serif' font-size='52' font-weight='bold' fill='%23ede7de' text-anchor='middle'>SS</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root{--bg:#1a1a1a;--bg2:#111;--cream:#ede7de;--lichen:#aaa798;--accent:#dc633f;--card:#222;--border:rgba(237,231,222,.08)}
+
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        ::-webkit-scrollbar{width:6px}
+        ::-webkit-scrollbar-track{background:var(--bg)}
+        ::-webkit-scrollbar-thumb{background:rgba(237,231,222,.15);border-radius:3px}
+
+        body{background:var(--bg);color:var(--cream);font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh}
+        a{color:inherit;text-decoration:none}
+
+        /* ── TOPBAR ── */
+        .topbar{position:fixed;top:0;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);color:var(--cream);display:flex;justify-content:space-between;align-items:center;padding:0 clamp(20px,4vw,48px);height:56px;z-index:100;font-size:13px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+        .topbar a{color:var(--cream);font-weight:700;transition:opacity .3s;letter-spacing:.02em}
+        .topbar a:hover{opacity:.5}
+        .topbar__right{display:flex;align-items:center;gap:16px;font-size:12px;color:var(--lichen)}
+        .lang-toggle{background:none;border:1px solid rgba(237,231,222,.25);border-radius:100px;padding:4px 12px;font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--cream);cursor:pointer;transition:background .3s,border-color .3s}
+        .lang-toggle:hover{background:rgba(237,231,222,.08);border-color:var(--cream)}
+
+        /* ── GRAIN ── */
+        .grain{position:fixed;inset:0;z-index:9999;pointer-events:none;mix-blend-mode:color-dodge;background-image:url('https://cdn.prod.website-files.com/69689842a40a17ac45e5418a/696fa735107879475a0cab0e_a1a6cc782354d179a4012e64d120e2b7_Grain%20(1).webp');background-size:150px;opacity:.25}
+
+        /* ── PAGE ── */
+        .page{padding-top:56px;min-height:100vh;position:relative}
+        .page__inner{max-width:1100px;margin:0 auto;padding:clamp(40px,6vw,80px) clamp(20px,4vw,48px)}
+
+        /* ── HEADER ── */
+        .page-header{margin-bottom:clamp(40px,6vw,72px)}
+        .page-label{font-size:clamp(10px,.75vw,12px);letter-spacing:.18em;text-transform:uppercase;color:var(--lichen);margin-bottom:clamp(16px,2vw,28px)}
+        .page-title{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,64px);font-weight:700;line-height:1.1}
+        .page-subtitle{font-size:clamp(13px,1.1vw,17px);color:var(--lichen);margin-top:12px;max-width:520px;line-height:1.7}
+
+        /* ── PROJECT GRID ── */
+        .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
+
+        /* ── PROJECT CARD ── */
+        .card{position:relative;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:clamp(28px,3vw,40px);display:flex;flex-direction:column;gap:20px;transition:transform .4s cubic-bezier(.22,1,.36,1),border-color .4s,box-shadow .4s;overflow:hidden;cursor:pointer}
+        .card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(220,99,63,.06),transparent 60%);opacity:0;transition:opacity .4s;border-radius:12px}
+        .card:hover{transform:translateY(-4px);border-color:rgba(220,99,63,.3);box-shadow:0 20px 60px rgba(0,0,0,.3),0 0 0 1px rgba(220,99,63,.1)}
+        .card:hover::before{opacity:1}
+
+        /* Card top row */
+        .card__header{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+        .card__index{font-family:'Playfair Display',serif;font-size:clamp(32px,3vw,42px);font-weight:700;line-height:1;color:rgba(237,231,222,.08);transition:color .4s}
+        .card:hover .card__index{color:rgba(220,99,63,.2)}
+        .card__badge{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:100px;padding:4px 10px;white-space:nowrap;flex-shrink:0}
+
+        /* Card content */
+        .card__name{font-family:'Playfair Display',serif;font-size:clamp(20px,1.8vw,28px);font-weight:700;line-height:1.2;position:relative;z-index:1}
+        .card__desc{font-size:clamp(12px,.95vw,14px);line-height:1.75;color:var(--lichen);position:relative;z-index:1}
+
+        /* Stats row */
+        .card__stats{display:flex;gap:24px;padding-top:16px;border-top:1px solid var(--border)}
+        .stat{display:flex;flex-direction:column;gap:2px}
+        .stat__val{font-family:'Playfair Display',serif;font-size:clamp(18px,1.5vw,24px);font-weight:700;color:var(--cream)}
+        .stat__label{font-size:clamp(9px,.65vw,10px);letter-spacing:.1em;text-transform:uppercase;color:var(--lichen)}
+
+        /* Tech tags */
+        .card__techs{display:flex;flex-wrap:wrap;gap:6px;position:relative;z-index:1}
+        .tech-tag{padding:4px 10px;border:1px solid var(--border);border-radius:100px;font-size:clamp(10px,.7vw,11px);color:rgba(237,231,222,.5);letter-spacing:.02em;transition:border-color .3s,color .3s}
+        .card:hover .tech-tag{border-color:rgba(237,231,222,.15);color:rgba(237,231,222,.7)}
+
+        /* Card arrow */
+        .card__arrow{position:absolute;top:clamp(28px,3vw,40px);right:clamp(28px,3vw,40px);font-size:18px;opacity:0;transform:translate(-6px,-6px);transition:opacity .4s,transform .4s;color:var(--accent)}
+        .card:hover .card__arrow{opacity:1;transform:translate(0,0)}
+
+        /* ── FOOTER ── */
+        .projects-footer{margin-top:clamp(60px,8vw,120px);padding-top:24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:clamp(10px,.75vw,12px);color:var(--lichen);opacity:.5}
+
+        /* ── FOCUS ── */
+        a:focus-visible,.card:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+        /* ── RESPONSIVE ── */
+        @media(max-width:480px){
+            .projects-grid{grid-template-columns:1fr}
+            .card__stats{gap:16px}
+        }
+
+        /* ── ANIMATIONS ── */
+        @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+        .page-label{animation:fadeUp .8s ease-out both}
+        .page-title{animation:fadeUp .8s ease-out .1s both}
+        .page-subtitle{animation:fadeUp .8s ease-out .2s both}
+        .card:nth-child(1){animation:fadeUp .7s ease-out .3s both}
+        .card:nth-child(2){animation:fadeUp .7s ease-out .4s both}
+        .card:nth-child(3){animation:fadeUp .7s ease-out .5s both}
+        .card:nth-child(4){animation:fadeUp .7s ease-out .6s both}
+
+        @media(prefers-reduced-motion:reduce){
+            *{animation-duration:0.01ms!important;transition-duration:0.01ms!important}
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grain"></div>
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <a href="index.html" data-i18n="proj.back">&larr; Back to portfolio</a>
+        <div class="topbar__right">
+            <span data-i18n="proj.count">4 projects</span>
+            <button class="lang-toggle" id="langToggle">TR</button>
+        </div>
+    </div>
+
+    <!-- PAGE -->
+    <div class="page">
+        <div class="page__inner">
+
+            <!-- HEADER -->
+            <div class="page-header">
+                <div class="page-label" data-i18n="proj.label">Projects</div>
+                <h1 class="page-title" data-i18n-html="proj.title">What I've<br>built</h1>
+                <p class="page-subtitle" data-i18n="proj.subtitle">Production backend systems built with Clean Architecture, Domain-Driven Design, and .NET — from domain modeling to deployment.</p>
+            </div>
+
+            <!-- GRID -->
+            <div class="projects-grid">
+
+                <!-- CARD 1: texit-access -->
+                <a href="#" class="card">
+                    <span class="card__arrow">&nearr;</span>
+                    <div class="card__header">
+                        <span class="card__index">01</span>
+                        <span class="card__badge" data-i18n="proj.production">Production</span>
+                    </div>
+                    <div class="card__name">texit-access<br><span style="font-family:'DM Sans',sans-serif;font-size:.45em;font-weight:400;color:var(--lichen);letter-spacing:.04em">(Dormimy)</span></div>
+                    <div class="card__desc" data-i18n="proj.texit.desc">Physical access control system for managing turnstiles, doors, and gates via QR/NFC/Card/Face authentication. 19 entity domains, 4 SignalR hubs, multi-tenant architecture with real-time event processing.</div>
+                    <div class="card__stats">
+                        <div class="stat"><span class="stat__val">14.7K+</span><span class="stat__label" data-i18n="proj.stat.lines">Lines C#</span></div>
+                        <div class="stat"><span class="stat__val">19</span><span class="stat__label" data-i18n="proj.stat.domains">Domains</span></div>
+                        <div class="stat"><span class="stat__val">4</span><span class="stat__label">SignalR Hubs</span></div>
+                    </div>
+                    <div class="card__techs">
+                        <span class="tech-tag">ASP.NET Core</span>
+                        <span class="tech-tag">.NET 10</span>
+                        <span class="tech-tag">EF Core</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Docker Swarm</span>
+                        <span class="tech-tag">SignalR</span>
+                    </div>
+                </a>
+
+                <!-- CARD 2: M2CRM -->
+                <a href="#" class="card">
+                    <span class="card__arrow">&nearr;</span>
+                    <div class="card__header">
+                        <span class="card__index">02</span>
+                        <span class="card__badge" data-i18n="proj.production">Production</span>
+                    </div>
+                    <div class="card__name">M2CRM</div>
+                    <div class="card__desc" data-i18n="proj.crm.desc">Multi-tenant CRM platform for managing customers, sales pipelines, billing, subscriptions, marketing, and document workflows. 14 service modules with CachedRepository, encryption, and audit logging.</div>
+                    <div class="card__stats">
+                        <div class="stat"><span class="stat__val">6.8K+</span><span class="stat__label" data-i18n="proj.stat.lines">Lines C#</span></div>
+                        <div class="stat"><span class="stat__val">98</span><span class="stat__label" data-i18n="proj.stat.services">Service Files</span></div>
+                        <div class="stat"><span class="stat__val">14</span><span class="stat__label" data-i18n="proj.stat.modules">Modules</span></div>
+                    </div>
+                    <div class="card__techs">
+                        <span class="tech-tag">ASP.NET Core</span>
+                        <span class="tech-tag">Redis</span>
+                        <span class="tech-tag">JWT</span>
+                        <span class="tech-tag">Repository + UoW</span>
+                        <span class="tech-tag">Multi-tenant</span>
+                    </div>
+                </a>
+
+                <!-- CARD 3: Dormimy Management -->
+                <a href="#" class="card">
+                    <span class="card__arrow">&nearr;</span>
+                    <div class="card__header">
+                        <span class="card__index">03</span>
+                        <span class="card__badge" style="color:var(--lichen);border-color:var(--lichen)" data-i18n="proj.indev">In Development</span>
+                    </div>
+                    <div class="card__name">Dormimy<br>Management</div>
+                    <div class="card__desc" data-i18n="proj.dormimy.desc">Dormitory management extension for texit-access. VisitorAccessEngine with category-based rule mapping for dormitory entry/exit control. VisitorPass, VisitorCategory, and VisitorAccessRule system.</div>
+                    <div class="card__stats">
+                        <div class="stat"><span class="stat__val">&mdash;</span><span class="stat__label" data-i18n="proj.stat.activedev">Active Dev</span></div>
+                        <div class="stat"><span class="stat__val">3+</span><span class="stat__label" data-i18n="proj.stat.domains">Domains</span></div>
+                    </div>
+                    <div class="card__techs">
+                        <span class="tech-tag">ASP.NET Core</span>
+                        <span class="tech-tag">SignalR</span>
+                        <span class="tech-tag">Dormimy.Domain</span>
+                        <span class="tech-tag">VisitorManagement</span>
+                    </div>
+                </a>
+
+                <!-- CARD 4: Gravitas Hukuk -->
+                <a href="projects/gravitas.html" class="card">
+                    <span class="card__arrow">&nearr;</span>
+                    <div class="card__header">
+                        <span class="card__index">04</span>
+                        <span class="card__badge" data-i18n="proj.freelance">Freelance</span>
+                    </div>
+                    <div class="card__name">Gravitas<br><span style="font-family:'DM Sans',sans-serif;font-size:.45em;font-weight:400;color:var(--lichen);letter-spacing:.04em">Hukuk ve Danışmanlık</span></div>
+                    <div class="card__desc" data-i18n="proj.gravitas.desc">Premium law firm website for Gravitas Law & Consultancy. Dark luxury aesthetic with gold accents, smooth scroll animations, and responsive design.</div>
+                    <div class="card__stats">
+                        <div class="stat"><span class="stat__val">15</span><span class="stat__label" data-i18n="proj.stat.areas">Practice Areas</span></div>
+                        <div class="stat"><span class="stat__val">6</span><span class="stat__label" data-i18n="proj.stat.articles">Articles</span></div>
+                    </div>
+                    <div class="card__techs">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Responsive</span>
+                    </div>
+                </a>
+
+            </div>
+
+            <!-- FOOTER -->
+            <div class="projects-footer">
+                <span>&copy; 2026 Serhat Sahin</span>
+                <span>Ankara, Turkey</span>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="i18n.js"></script>
+    <script>
+        (function(){
+            window._i18n.init();
+            var btn=document.getElementById('langToggle');
+            if(btn)btn.addEventListener('click',function(e){
+                e.preventDefault();
+                var lang=localStorage.getItem('lang')==='tr'?'en':'tr';
+                window._i18n.apply(lang);
+                btn.textContent=lang==='en'?'TR':'EN';
+            });
+        })();
+    </script>
+</body>
+</html>

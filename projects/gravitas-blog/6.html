@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Yapı Denetim Sorumluluğu Ne Zaman Başlar, Ne Zaman Biter? — Gravitas Hukuk</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230c0c0c' width='100' height='100' rx='16'/><text x='50' y='68' font-family='serif' font-size='52' font-weight='bold' fill='%23c9a96e' text-anchor='middle'>G</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --bg:#0c0c0c;--bg2:#111;--surface:#161616;
+            --gold:#c9a96e;--gold-dim:rgba(201,169,110,.15);--gold-glow:rgba(201,169,110,.08);
+            --cream:#e8e2d6;--mid:#7a7468;--faint:rgba(232,226,214,.06);
+            --rule:rgba(232,226,214,.08)
+        }
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        ::selection{background:var(--gold);color:var(--bg)}
+        ::-webkit-scrollbar{width:5px}
+        ::-webkit-scrollbar-track{background:var(--bg)}
+        ::-webkit-scrollbar-thumb{background:rgba(201,169,110,.25);border-radius:3px}
+        html{scroll-behavior:smooth}
+        body{background:var(--bg);color:var(--cream);font-family:'Outfit',sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+        a{color:inherit;text-decoration:none}
+
+        .grain{position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.18;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px}
+
+        .topbar{position:fixed;top:0;left:0;right:0;height:56px;display:flex;align-items:center;padding:0 clamp(20px,5vw,60px);z-index:900;background:rgba(12,12,12,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--rule)}
+        .topbar__back{font-size:13px;font-weight:400;color:var(--mid);transition:color .3s;letter-spacing:.02em}
+        .topbar__back:hover{color:var(--gold)}
+
+        .article-wrap{max-width:720px;margin:0 auto;padding:calc(56px + clamp(48px,8vw,96px)) clamp(20px,5vw,40px) clamp(64px,10vw,120px)}
+        .article__label{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:400;margin-bottom:20px}
+        .article__title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5vw,48px);font-weight:300;line-height:1.15;margin-bottom:16px}
+        .article__meta{font-size:12px;color:var(--mid);letter-spacing:.04em;margin-bottom:clamp(32px,5vw,56px);line-height:1.8}
+        .article__divider{height:1px;background:var(--rule);margin-bottom:clamp(32px,5vw,56px)}
+        .article__content p{font-size:clamp(14px,1.1vw,16.5px);line-height:1.95;color:var(--mid);margin-bottom:1.6em}
+        .article__content p strong{color:var(--cream);font-weight:500}
+        .article__content h2{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3vw,32px);font-weight:400;color:var(--cream);margin-top:2.4em;margin-bottom:.8em;line-height:1.3}
+        .article__content h2:first-child{margin-top:0}
+        .article__content blockquote{border-left:2px solid var(--gold);padding-left:20px;margin:2em 0;font-style:italic;color:var(--cream);font-size:clamp(15px,1.15vw,17px);line-height:1.8}
+
+        .footer{border-top:1px solid var(--rule);max-width:720px;margin:0 auto;padding:24px clamp(20px,5vw,40px);font-size:10px;color:var(--mid);letter-spacing:.06em;text-align:center}
+        .footer__gold{color:var(--gold)}
+
+        @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+    </style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<div class="topbar">
+    <a href="../gravitas.html#makaleler" class="topbar__back">&larr; Makaleler</a>
+</div>
+
+<article class="article-wrap">
+    <div class="article__label">Makale</div>
+    <h1 class="article__title">Yapı Denetim Sorumluluğu Ne Zaman Başlar, Ne Zaman Biter?</h1>
+    <div class="article__meta">İnş. Müh. Eda Özge Uğurlu &middot; 20 Mart 2026</div>
+    <div class="article__divider"></div>
+    <div class="article__content">
+        <p>Yapı denetimle ilgili en çok karıştırılan konulardan biri şu: sorumluluk tam olarak ne zaman başlıyor, ne zaman bitiyor? Bu sorunun cevabı, hem yapı denetim kuruluşları hem de yapı sahipleri ve müteahhitler açısından büyük önem taşır.</p>
+
+        <h2>Yapı Denetim Sorumluluğu Ne Zaman Başlar?</h2>
+        <p>Yapı denetim sorumluluğu, yapı ruhsatının alınmasıyla birlikte başlar. Ruhsat alındıktan sonra yapı denetim kuruluşu devreye girer ve inşaat sürecinin her aşamasında denetim görevini üstlenir. Ruhsat öncesi yapılan hazırlık çalışmaları denetim kapsamı dışında kalsa da, ruhsat tarihinden itibaren yapılan her imalat yapı denetimin sorumluluk alanına girer.</p>
+
+        <h2>Süreç Boyunca Sorumluluk Neleri Kapsar?</h2>
+        <p>Yapı denetim kuruluşunun sorumluluğu, inşaat sürecinin tamamını kapsar. Temel kazısından çatı imalatına, betonarme işlerden tesisat kontrollerine kadar her aşamada yapılan imalatlar kontrol kapsamındadır. Yapı denetim kuruluşu, projeye uygunluğu, malzeme kalitesini ve imalat standartlarını düzenli olarak denetlemekle yükümlüdür. Her seviye tamamlandığında hakediş raporu düzenlenir ve bir sonraki aşamaya geçiş onaylanır.</p>
+
+        <h2>Yapı Denetim Sorumluluğu Ne Zaman Biter?</h2>
+        <p>Yapı denetim sorumluluğu, yapı kullanma izin belgesi (iskan) alınmasıyla sona ermez. Mevzuat gereği, yapı denetim kuruluşunun sorumluluğu yapının tamamlanmasından itibaren belirli bir süre daha devam eder. Bu süre zarfında ortaya çıkan yapısal sorunlardan yapı denetim kuruluşu da sorumlu tutulabilir. İskan alınana kadar devam eden aktif denetim sorumluluğunun yanı sıra, geçmişe dönük sorumluluk da sıfırlanmaz.</p>
+
+        <h2>Pratikte Göz Ardı Edilen Riskler</h2>
+        <p>Uygulamada en sık karşılaşılan sorunlardan biri, denetim sürecinin yeterince titizlikle yürütülmemesidir. Görmeden imza atmak, sahaya gitmeden onay vermek büyük risk taşır. Bu tür uygulamalar, hem yapı güvenliğini tehlikeye atar hem de yapı denetim kuruluşunun hukuki sorumluluğunu ağırlaştırır.</p>
+
+        <p>Bir diğer önemli konu ise belgelendirme eksiklikleridir. Denetim sürecinde tutulan kayıtlar, ileride ortaya çıkabilecek uyuşmazlıklarda kritik delil niteliği taşır. Eksik veya düzensiz belgeler, yapı denetim kuruluşunun kendini savunmasını zorlaştırır.</p>
+
+        <p><strong>Yapı denetim süreci, yapının güvenliğini ve mevzuata uygunluğunu sağlamak için kritik bir mekanizmadır.</strong> Bu sürecin doğru yönetilmesi, hem yapı güvenliği hem de ilgili tarafların hukuki korunması açısından büyük önem taşır. Her yapının kendine özgü koşulları vardır ve denetim süreci bu koşullara uygun şekilde yürütülmelidir.</p>
+    </div>
+</article>
+
+<footer class="footer">
+    <span>&copy; 2026 <span class="footer__gold">Gravitas Hukuk</span></span>
+</footer>
+
+</body>
+</html>

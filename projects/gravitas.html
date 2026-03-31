@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gravitas Hukuk ve Danışmanlık</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230c0c0c' width='100' height='100' rx='16'/><text x='50' y='68' font-family='serif' font-size='52' font-weight='bold' fill='%23c9a96e' text-anchor='middle'>G</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --bg:#0c0c0c;--bg2:#111;--surface:#161616;
+            --gold:#c9a96e;--gold-dim:rgba(201,169,110,.15);--gold-glow:rgba(201,169,110,.08);
+            --cream:#e8e2d6;--mid:#7a7468;--faint:rgba(232,226,214,.06);
+            --rule:rgba(232,226,214,.08)
+        }
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        ::selection{background:var(--gold);color:var(--bg)}
+        ::-webkit-scrollbar{width:5px}
+        ::-webkit-scrollbar-track{background:var(--bg)}
+        ::-webkit-scrollbar-thumb{background:rgba(201,169,110,.25);border-radius:3px}
+        html{scroll-behavior:smooth}
+        body{background:var(--bg);color:var(--cream);font-family:'Outfit',sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+        a{color:inherit;text-decoration:none}
+
+        /* ══ GRAIN ══ */
+        .grain{position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.18;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px}
+
+        /* ══ LOADER ══ */
+        .loader{position:fixed;inset:0;z-index:10000;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px}
+        .loader__line{width:60px;height:1px;background:var(--gold);transform:scaleX(0);animation:lineGrow 1.2s cubic-bezier(.22,1,.36,1) .2s forwards}
+        .loader__name{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5vw,48px);font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);opacity:0;animation:fadeUp .8s ease .5s forwards}
+        .loader__sub{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--mid);opacity:0;animation:fadeUp .6s ease .8s forwards}
+        .loader.is-done{opacity:0;pointer-events:none;transition:opacity .8s ease}
+        @keyframes lineGrow{to{transform:scaleX(1)}}
+        @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+        /* ══ NAV ══ */
+        .nav{position:fixed;top:0;left:0;right:0;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,5vw,60px);z-index:900;background:rgba(12,12,12,.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--rule);opacity:0;transform:translateY(-100%);transition:opacity .6s,transform .6s}
+        .nav.is-visible{opacity:1;transform:translateY(0)}
+        .nav__logo{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+        .nav__links{display:flex;align-items:center;gap:clamp(16px,2.5vw,32px)}
+        .nav__link{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:400;color:var(--mid);transition:color .3s}
+        .nav__link:hover{color:var(--gold)}
+        .nav__back{font-size:12px;font-weight:500;color:var(--mid);transition:color .3s}
+        .nav__back:hover{color:var(--gold)}
+        .nav__hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;margin:-8px}
+        .nav__hamburger span{display:block;width:22px;height:1.5px;background:var(--cream);transition:transform .3s,opacity .3s}
+
+        /* Mobile menu */
+        .mobile-menu{position:fixed;inset:0;z-index:899;background:var(--bg);display:none;flex-direction:column;align-items:center;justify-content:center;gap:28px}
+        .mobile-menu.is-open{display:flex}
+        .mobile-menu a{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;letter-spacing:.06em;color:var(--cream);transition:color .3s}
+        .mobile-menu a:hover{color:var(--gold)}
+
+        @media(max-width:768px){
+            .nav__links{display:none}
+            .nav__hamburger{display:flex}
+        }
+
+        /* ══ HERO ══ */
+        .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:clamp(80px,12vw,160px) clamp(20px,5vw,60px);position:relative;overflow:hidden}
+        .hero::before{content:'';position:absolute;top:-20%;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,var(--gold-glow),transparent 70%);pointer-events:none}
+        .hero__eyebrow{font-size:10px;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);font-weight:400;opacity:0;transform:translateY(16px)}
+        .hero__title{font-family:'Cormorant Garamond',serif;font-size:clamp(42px,7vw,96px);font-weight:300;line-height:1.1;letter-spacing:.04em;margin-top:20px;opacity:0;transform:translateY(40px)}
+        .hero__title em{font-style:italic;color:var(--gold)}
+        .hero__tagline{font-size:clamp(13px,1.2vw,17px);color:var(--mid);letter-spacing:.08em;margin-top:24px;max-width:500px;line-height:1.8;opacity:0;transform:translateY(24px)}
+        .hero__line{width:40px;height:1px;background:var(--gold);margin-top:40px;opacity:0}
+        .hero__scroll{position:absolute;bottom:32px;font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--mid);opacity:0}
+        .hero__scroll::after{content:'';display:block;width:1px;height:48px;background:linear-gradient(var(--gold),transparent);margin:10px auto 0;animation:pulse 2s ease infinite}
+        @keyframes pulse{0%,100%{opacity:.2;transform:scaleY(.5)}50%{opacity:.8;transform:scaleY(1)}}
+
+        /* ══ SECTIONS ══ */
+        .sect{padding:clamp(64px,9vw,128px) clamp(20px,5vw,60px);max-width:1100px;margin:0 auto}
+        .sect--full{max-width:none}
+        .sect__divider{height:1px;background:var(--rule);max-width:1100px;margin:0 auto}
+        .sect__label{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:400;margin-bottom:clamp(20px,3vw,40px)}
+        .sect__heading{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,56px);font-weight:300;line-height:1.15;margin-bottom:clamp(16px,2vw,28px)}
+        .sect__body{font-size:clamp(14px,1.05vw,16px);line-height:1.9;color:var(--mid);max-width:640px}
+        .sect__body strong{color:var(--cream);font-weight:500}
+
+        /* ══ PRACTICE AREAS ══ */
+        .areas{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:clamp(32px,4vw,56px)}
+        .area{background:var(--bg);padding:clamp(24px,2.5vw,36px);display:flex;align-items:flex-start;gap:16px;transition:background .4s}
+        .area:hover{background:var(--surface)}
+        .area__num{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,1.8vw,28px);color:rgba(201,169,110,.2);font-weight:300;line-height:1;transition:color .4s;flex-shrink:0}
+        .area:hover .area__num{color:var(--gold)}
+        .area__name{font-size:clamp(12px,.95vw,14px);font-weight:400;letter-spacing:.03em;line-height:1.5;color:var(--cream)}
+
+        @media(max-width:768px){.areas{grid-template-columns:1fr 1fr}}
+        @media(max-width:480px){.areas{grid-template-columns:1fr}}
+
+        /* ══ TEAM ══ */
+        .team{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,3vw,48px);margin-top:clamp(32px,4vw,56px)}
+        .member{border:1px solid var(--rule);padding:clamp(32px,3vw,48px);position:relative;overflow:hidden;transition:border-color .4s}
+        .member:hover{border-color:rgba(201,169,110,.3)}
+        .member::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .6s cubic-bezier(.22,1,.36,1)}
+        .member:hover::before{transform:scaleX(1)}
+        .member__photo{width:100%;aspect-ratio:3/3.5;object-fit:cover;object-position:top;border:1px solid var(--rule);margin-bottom:20px;filter:grayscale(.3);transition:filter .4s}
+        .member:hover .member__photo{filter:grayscale(0)}
+        .member__initials{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,5vw,72px);font-weight:300;color:rgba(201,169,110,.1);line-height:1;margin-bottom:16px;transition:color .4s;display:none}
+        .member:hover .member__initials{color:rgba(201,169,110,.25)}
+        .member__name{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,1.8vw,28px);font-weight:400;margin-bottom:4px}
+        .member__role{font-size:clamp(11px,.8vw,13px);color:var(--gold);letter-spacing:.1em;text-transform:uppercase;font-weight:400}
+        .member__linkedin{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:var(--mid);margin-top:10px;letter-spacing:.04em;transition:color .3s}
+        .member__linkedin:hover{color:var(--gold)}
+
+        @media(max-width:600px){.team{grid-template-columns:1fr}}
+
+        /* ══ BLOG ══ */
+        .articles{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:clamp(32px,4vw,56px)}
+        .article{border:1px solid var(--rule);padding:clamp(24px,2.5vw,36px);display:flex;align-items:flex-start;gap:20px;transition:border-color .4s,background .4s;cursor:pointer}
+        .article:hover{border-color:rgba(201,169,110,.25);background:var(--surface)}
+        .article__img{width:80px;height:60px;object-fit:cover;border:1px solid var(--rule);flex-shrink:0;filter:grayscale(.4);transition:filter .4s}
+        .article:hover .article__img{filter:grayscale(0)}
+        .article__num{font-family:'Cormorant Garamond',serif;font-size:24px;color:rgba(201,169,110,.15);font-weight:300;flex-shrink:0;transition:color .4s;display:none}
+        .article:hover .article__num{color:var(--gold)}
+        .article__title{font-size:clamp(13px,1vw,15px);font-weight:400;line-height:1.6;color:var(--cream)}
+        .article__meta{font-size:10px;color:var(--mid);letter-spacing:.04em;margin-top:4px;display:block;width:100%}
+        .article__arrow{font-size:14px;color:var(--mid);opacity:0;transform:translateX(-8px);transition:opacity .3s,transform .3s;margin-left:auto;flex-shrink:0;align-self:center}
+        .article:hover .article__arrow{opacity:1;transform:translateX(0)}
+
+        @media(max-width:600px){.articles{grid-template-columns:1fr}}
+
+        /* ══ CONTACT ══ */
+        .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,4vw,64px);margin-top:clamp(32px,4vw,56px)}
+        .contact-item{margin-bottom:24px}
+        .contact-item__label{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;font-weight:400}
+        .contact-item__value{font-size:clamp(14px,1.05vw,16px);line-height:1.8;color:var(--mid)}
+        .contact-item__value a{color:var(--cream);border-bottom:1px solid var(--rule);transition:border-color .3s,color .3s}
+        .contact-item__value a:hover{color:var(--gold);border-color:var(--gold)}
+        .social-links{display:flex;gap:16px;margin-top:8px}
+        .social-link{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mid);font-weight:400;transition:color .3s}
+        .social-link:hover{color:var(--gold)}
+        .map{width:100%;height:280px;border:1px solid var(--rule);margin-top:clamp(32px,4vw,48px);filter:grayscale(.8) invert(.92) contrast(1.1);transition:filter .4s}
+        .map:hover{filter:grayscale(.3) invert(.92) contrast(1.1)}
+
+        @media(max-width:600px){.contact-grid{grid-template-columns:1fr}}
+
+        /* ══ FOOTER ══ */
+        .footer{border-top:1px solid var(--rule);padding:24px clamp(20px,5vw,60px);display:flex;justify-content:space-between;align-items:center;font-size:10px;color:var(--mid);letter-spacing:.06em}
+        .footer__gold{color:var(--gold)}
+        @media(max-width:600px){.footer{flex-direction:column;gap:8px;text-align:center}}
+
+        /* ══ REVEALS ══ */
+        .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
+        .reveal.is-visible{opacity:1;transform:translateY(0)}
+
+        @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+    </style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<!-- LOADER -->
+<div class="loader" id="loader">
+    <div class="loader__line"></div>
+    <div class="loader__name">Gravitas</div>
+    <div class="loader__sub">Hukuk ve Danışmanlık</div>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+    <a href="../projects.html" class="nav__back">&larr; Projeler</a>
+    <span class="nav__logo">Gravitas</span>
+    <div class="nav__links">
+        <a href="#hakkimizda" class="nav__link">Hakkımızda</a>
+        <a href="#alanlar" class="nav__link">Çalışma Alanları</a>
+        <a href="#ekip" class="nav__link">Ekip</a>
+        <a href="#makaleler" class="nav__link">Makaleler</a>
+        <a href="#iletisim" class="nav__link">İletişim</a>
+    </div>
+    <div class="nav__hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="#hakkimizda" class="mm-link">Hakkımızda</a>
+    <a href="#alanlar" class="mm-link">Çalışma Alanları</a>
+    <a href="#ekip" class="mm-link">Ekip</a>
+    <a href="#makaleler" class="mm-link">Makaleler</a>
+    <a href="#iletisim" class="mm-link">İletişim</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero__eyebrow" id="he1">Hukuk Bürosu · Ankara</div>
+    <h1 class="hero__title" id="he2">Gravitas<br><em>Hukuk ve Danışmanlık</em></h1>
+    <p class="hero__tagline" id="he3">Ciddiyet, Sorumluluk ve İtibarlı Duruş</p>
+    <div class="hero__line" id="he4"></div>
+    <div class="hero__scroll" id="he5">Keşfet</div>
+</section>
+
+<div class="sect__divider"></div>
+
+<!-- HAKKIMIZDA -->
+<section class="sect" id="hakkimizda">
+    <div class="reveal">
+        <div class="sect__label">Hakkımızda</div>
+        <h2 class="sect__heading">Ağırbaşlı ve<br>Onurlu Duruş</h2>
+        <p class="sect__body"><strong>Gravitas</strong>, Antik Roma'da ciddiyet, ağırbaşlılık ve sorumluluk bilincini ifade eden köklü bir kavramdır. Bu kavram; karar alma süreçlerinde tutarlılığı, öngörülebilirliği ve güvenilirliği temsil eder.</p>
+        <p class="sect__body" style="margin-top:16px">Gravitas Hukuk & Danışmanlık, adını aldığı bu değerleri mesleki yaklaşımının merkezine yerleştirerek, hukuku yalnızca teknik bir uzmanlık alanı olarak değil; bireyler ve kurumlar için <strong>stratejik bir yönetim ve risk kontrol aracı</strong> olarak ele alır. Hizmetlerini yüksek mesleki standartlar, kurumsal disiplin ve etik sorumluluk ilkeleri çerçevesinde sunar.</p>
+        <p class="sect__body" style="margin-top:16px">Ofisimiz; şirketler, girişimler ve bireysel müvekkiller için, hukuki süreçleri net, uygulanabilir ve sonuç odaklı bir yaklaşımla yönetir. Her dosyada hukuki gereklilikleri ticari ve kişisel gerçeklerle birlikte değerlendirerek, müvekkillerimizin karar alma süreçlerine değer katan bir danışmanlık anlayışı benimser.</p>
+        <p class="sect__body" style="margin-top:16px">Gravitas Hukuk & Danışmanlık, hukuki risklerin önceden tespit edilmesi ve etkin biçimde yönetilmesini esas alır. Bu kapsamda yalnızca mevcut uyuşmazlıkların çözümüne odaklanmaz; <strong>önleyici hukuk</strong> ve <strong>sürdürülebilir strateji</strong> yaklaşımıyla müvekkillerinin bugününü ve geleceğini güvence altına almayı hedefler.</p>
+        <p class="sect__body" style="margin-top:16px">Gravitas'ta hukuki hizmet; <strong>netlik, güven, istikrar ve sorumluluk</strong> ilkeleri üzerine inşa edilir.</p>
+    </div>
+</section>
+
+<div class="sect__divider"></div>
+
+<!-- ÇALIŞMA ALANLARI -->
+<section class="sect sect--full" id="alanlar" style="max-width:1100px;margin:0 auto">
+    <div class="reveal">
+        <div class="sect__label">Çalışma Alanları</div>
+        <h2 class="sect__heading">Uzmanlık<br>Alanlarımız</h2>
+    </div>
+    <div class="areas reveal">
+        <div class="area"><span class="area__num">01</span><span class="area__name">Ticaret ve Şirketler Hukuku</span></div>
+        <div class="area"><span class="area__num">02</span><span class="area__name">Birleşmeler ve Devralmalar</span></div>
+        <div class="area"><span class="area__num">03</span><span class="area__name">Girişimcilik ve Start-up Hukuku</span></div>
+        <div class="area"><span class="area__num">04</span><span class="area__name">Banka ve Finans Hukuku</span></div>
+        <div class="area"><span class="area__num">05</span><span class="area__name">Sermaye Piyasası Hukuku</span></div>
+        <div class="area"><span class="area__num">06</span><span class="area__name">İş ve Sosyal Güvenlik Hukuku</span></div>
+        <div class="area"><span class="area__num">07</span><span class="area__name">İdare ve Vergi Hukuku</span></div>
+        <div class="area"><span class="area__num">08</span><span class="area__name">Bilişim Hukuku</span></div>
+        <div class="area"><span class="area__num">09</span><span class="area__name">Fikri ve Sınai Haklar Hukuku</span></div>
+        <div class="area"><span class="area__num">10</span><span class="area__name">Sigorta ve Tazminat Hukuku</span></div>
+        <div class="area"><span class="area__num">11</span><span class="area__name">Kira ve Gayrimenkul Hukuku</span></div>
+        <div class="area"><span class="area__num">12</span><span class="area__name">Tüketici Hukuku</span></div>
+        <div class="area"><span class="area__num">13</span><span class="area__name">Ceza Hukuku</span></div>
+        <div class="area"><span class="area__num">14</span><span class="area__name">Aile ve Kişisel Hukuku</span></div>
+        <div class="area"><span class="area__num">15</span><span class="area__name">İcra ve İflas Hukuku</span></div>
+    </div>
+</section>
+
+<div class="sect__divider"></div>
+
+<!-- EKİP -->
+<section class="sect" id="ekip">
+    <div class="reveal">
+        <div class="sect__label">Ekibimiz</div>
+        <h2 class="sect__heading">Kurucu<br>Avukatlar</h2>
+    </div>
+    <div class="team reveal">
+        <div class="member">
+            <img src="gravitas-img/melis.jpg" alt="Av. Melis Çağla Uğurlu" class="member__photo">
+            <div class="member__name">Av. Melis Çağla Uğurlu</div>
+            <div class="member__role">Kurucu Avukat</div>
+            <a href="https://www.linkedin.com/in/melis%C3%A7a%C4%9Flau%C4%9Furlu/" target="_blank" class="member__linkedin">&nearr; LinkedIn</a>
+        </div>
+        <div class="member">
+            <img src="gravitas-img/irem.jpeg" alt="Av. İrem Taşkın Işıklar" class="member__photo">
+            <div class="member__name">Av. İrem Taşkın Işıklar</div>
+            <div class="member__role">Kurucu Avukat</div>
+            <a href="https://www.linkedin.com/in/iremta%C5%9Fk%C4%B1n/" target="_blank" class="member__linkedin">&nearr; LinkedIn</a>
+        </div>
+    </div>
+</section>
+
+<div class="sect__divider"></div>
+
+<!-- MAKALELER -->
+<section class="sect" id="makaleler">
+    <div class="reveal">
+        <div class="sect__label">Makaleler</div>
+        <h2 class="sect__heading">Güncel<br>Yazılarımız</h2>
+    </div>
+    <div class="articles reveal">
+        <a href="gravitas-blog/1.html" class="article"><img src="gravitas-img/blog1.png" alt="" class="article__img"><span class="article__title">Şirket Kurarken En Sık Yapılan Hukuki Hatalar</span><span class="article__meta">Av. Melis Çağla Uğurlu</span><span class="article__arrow">&nearr;</span></a>
+        <a href="gravitas-blog/2.html" class="article"><img src="gravitas-img/blog2.png" alt="" class="article__img"><span class="article__title">Ortaklık Sözleşmesi Olmadan İşe Başlamak Ne Gibi Sorunlar Doğurur?</span><span class="article__meta">Av. Melis Çağla Uğurlu</span><span class="article__arrow">&nearr;</span></a>
+        <a href="gravitas-blog/3.html" class="article"><img src="gravitas-img/blog3.png" alt="" class="article__img"><span class="article__title">Start-uplarda Hisse Dağılımı Neden Baştan Net Olmalı?</span><span class="article__meta">Av. İrem Taşkın Işıklar</span><span class="article__arrow">&nearr;</span></a>
+        <a href="gravitas-blog/4.html" class="article"><img src="gravitas-img/blog4.png" alt="" class="article__img"><span class="article__title">Teknokent Şirketleri Hangi Hukuki Risklerle Karşılaşır?</span><span class="article__meta">Av. Melis Çağla Uğurlu</span><span class="article__arrow">&nearr;</span></a>
+        <a href="gravitas-blog/5.html" class="article"><img src="gravitas-img/blog5.png" alt="" class="article__img"><span class="article__title">Yatırım Almadan Önce Start-upların Bilmesi Gerekenler</span><span class="article__meta">Av. Melis Çağla Uğurlu</span><span class="article__arrow">&nearr;</span></a>
+        <a href="gravitas-blog/6.html" class="article"><img src="gravitas-img/blog6.png" alt="" class="article__img"><span class="article__title">Yapı Denetim Sorumluluğu Ne Zaman Başlar, Ne Zaman Biter?</span><span class="article__meta">İnş. Müh. Eda Özge Uğurlu</span><span class="article__arrow">&nearr;</span></a>
+    </div>
+</section>
+
+<div class="sect__divider"></div>
+
+<!-- İLETİŞİM -->
+<section class="sect" id="iletisim">
+    <div class="reveal">
+        <div class="sect__label">İletişim</div>
+        <h2 class="sect__heading">Bize<br>Ulaşın</h2>
+    </div>
+    <div class="contact-grid reveal">
+        <div>
+            <div class="contact-item">
+                <div class="contact-item__label">Adres</div>
+                <div class="contact-item__value">Emniyet Mahallesi, Hipodrom Caddesi<br>No:9/12 L1 Blok No:8<br>06560 Yenimahalle / Ankara</div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-item__label">Çalışma Saatleri</div>
+                <div class="contact-item__value">Pazartesi — Cuma: 09:30 – 17:00<br>Cumartesi — Pazar: Kapalı</div>
+            </div>
+        </div>
+        <div>
+            <div class="contact-item">
+                <div class="contact-item__label">Telefon</div>
+                <div class="contact-item__value"><a href="tel:+903125147862">(0312) 514 78 62</a></div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-item__label">E-posta</div>
+                <div class="contact-item__value"><a href="mailto:gravitashukuk@gmail.com">gravitashukuk@gmail.com</a></div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-item__label">Sosyal Medya</div>
+                <div class="social-links">
+                    <a href="https://instagram.com/gravitashukukvedanismanlik" target="_blank" class="social-link">Instagram</a>
+                    <a href="https://linkedin.com/company/gravitaslawconsultancy" target="_blank" class="social-link">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <iframe class="map reveal" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3059.5!2d32.7951!3d39.9652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMznCsDU3JzU0LjciTiAzMsKwNDcnNDIuNCJF!5e0!3m2!1str!2str!4v1" loading="lazy" frameborder="0" allowfullscreen></iframe>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <span>&copy; 2026 <span class="footer__gold">Gravitas Hukuk</span></span>
+    <span>Tüm Hakları Saklıdır</span>
+    <span>Ankara, Türkiye</span>
+</footer>
+
+<script>
+(function(){
+    var loader=document.getElementById('loader'),nav=document.getElementById('nav');
+    var hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu');
+
+    // Loader
+    setTimeout(function(){loader.classList.add('is-done')},2000);
+    setTimeout(function(){
+        loader.style.display='none';
+        nav.classList.add('is-visible');
+        ['he1','he2','he3','he4','he5'].forEach(function(id,i){
+            setTimeout(function(){
+                var el=document.getElementById(id);
+                if(el){el.style.transition='opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)';el.style.opacity='1';el.style.transform='translateY(0)'}
+            },i*180);
+        });
+    },2600);
+
+    // Hamburger
+    hamburger.addEventListener('click',function(){
+        mobileMenu.classList.toggle('is-open');
+    });
+    document.querySelectorAll('.mm-link').forEach(function(a){
+        a.addEventListener('click',function(){mobileMenu.classList.remove('is-open')});
+    });
+
+    // Scroll reveals
+    var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+            if(e.isIntersecting){e.target.classList.add('is-visible');obs.unobserve(e.target)}
+        });
+    },{threshold:.1});
+    document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
+})();
+</script>
+</body>
+</html>
