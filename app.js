@@ -105,6 +105,7 @@
     /* ═══ NAV SCROLL ═══ */
     function initNavScroll(){
         $$('a[href^="#"]').forEach(a=>{
+            if(a.classList.contains('nav__menu-btn')||a.classList.contains('menu__close'))return;
             a.addEventListener('click',e=>{
                 e.preventDefault();
                 $('#menu').classList.remove('is-open');
@@ -132,11 +133,27 @@
         $('.menu__close').addEventListener('click',e=>{e.preventDefault();$('#menu').classList.remove('is-open')});
     }
 
+    /* ═══ LANG TOGGLE SYNC ═══ */
+    function initLangSync(){
+        const desktop=$('#langToggle'),mobile=$('#langToggleMobile');
+        if(!desktop||!mobile)return;
+        // Sync both buttons
+        function syncToggle(){
+            const lang=localStorage.getItem('lang')==='tr'?'en':'tr';
+            window._i18n.apply(lang);
+            desktop.textContent=lang==='en'?'TR':'EN';
+            mobile.textContent=lang==='en'?'TR':'EN';
+        }
+        desktop.addEventListener('click',e=>{e.preventDefault();syncToggle()});
+        mobile.addEventListener('click',e=>{e.preventDefault();syncToggle()});
+    }
+
     /* ═══ INIT ═══ */
     function init(){
         initSlider();
         initMenu();
         initNavScroll();
+        if(window._i18n){window._i18n.init();initLangSync();}
         runLoader();
         setTimeout(initScrollAnims,500);
     }
