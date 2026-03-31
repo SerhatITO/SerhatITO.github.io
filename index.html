@@ -63,11 +63,11 @@
 
     <!-- LOADER -->
     <div class="loader" id="loader">
-        <div class="loader__top"><div class="loader__text">.NET Backend Engineer</div></div>
+        <div class="loader__top"><div class="loader__text" data-i18n="loader.title">.NET Backend Engineer</div></div>
         <div class="loader__logo">
             <div class="loader__name">SS</div>
         </div>
-        <div class="loader__bottom"><div class="loader__text">Clean Architecture &middot; DDD &middot; Scalable Systems</div></div>
+        <div class="loader__bottom"><div class="loader__text" data-i18n="loader.sub">Clean Architecture &middot; DDD &middot; Scalable Systems</div></div>
     </div>
 
     <!-- GRAIN -->
@@ -80,26 +80,31 @@
     <nav class="nav" aria-label="Main navigation">
         <a href="/" class="nav__logo-text" aria-label="Serhat Sahin - Home">Serhat Sahin</a>
         <div class="nav__links">
-            <a href="#work" class="nav__link">work</a>
-            <a href="#about" class="nav__link">about</a>
-            <a href="#skills" class="nav__link">skills</a>
-            <a href="#contact" class="nav__link">contact</a>
+            <a href="#work" class="nav__link" data-i18n="nav.work">work</a>
+            <a href="#about" class="nav__link" data-i18n="nav.about">about</a>
+            <a href="#skills" class="nav__link" data-i18n="nav.skills">skills</a>
+            <a href="#contact" class="nav__link" data-i18n="nav.contact">contact</a>
             <span class="nav__line"></span>
-            <a href="/resume.html" class="nav__link">resume</a>
+            <a href="resume.html" class="nav__link" data-i18n="nav.resume">resume</a>
             <a href="https://github.com/SerhatITO" target="_blank" class="nav__link">github</a>
+            <span class="nav__line"></span>
+            <button class="lang-toggle" id="langToggle">TR</button>
         </div>
-        <a href="#" class="nav__link nav__menu-btn">menu</a>
+        <div class="nav__right">
+            <button class="lang-toggle lang-toggle--mobile" id="langToggleMobile">TR</button>
+            <a href="#" class="nav__link nav__menu-btn" data-i18n="nav.menu">menu</a>
+        </div>
     </nav>
 
     <!-- MOBILE MENU -->
     <div class="menu" id="menu">
-        <div class="menu__top"><a href="#" class="menu__close">Close</a></div>
+        <div class="menu__top"><a href="#" class="menu__close" data-i18n="menu.close">Close</a></div>
         <div class="menu__links">
-            <a href="#work" class="menu__link">work</a>
-            <a href="#about" class="menu__link">about</a>
-            <a href="#skills" class="menu__link">skills</a>
-            <a href="#contact" class="menu__link">contact</a>
-            <a href="/resume.html" class="menu__link">resume</a>
+            <a href="#work" class="menu__link" data-i18n="nav.work">work</a>
+            <a href="#about" class="menu__link" data-i18n="nav.about">about</a>
+            <a href="#skills" class="menu__link" data-i18n="nav.skills">skills</a>
+            <a href="#contact" class="menu__link" data-i18n="nav.contact">contact</a>
+            <a href="resume.html" class="menu__link" data-i18n="nav.resume">resume</a>
             <a href="https://github.com/SerhatITO" target="_blank" class="menu__link">github</a>
         </div>
     </div>
@@ -138,44 +143,44 @@
             <div class="slider__list" id="sliderRight">
                 <div class="slider__item">
                     <div class="slide-detail">
-                        <p class="slide-detail__desc">Physical access control system — turnstiles, doors, gates with QR/NFC/Card/Face auth. 19 entity domains including AccessControl, Tenancy, Licensing, Visitor Management, Alerts, Analytics, Sanctions. AccessEngine + RuleEvaluator + DirectionResolver pipeline. Multi-database (PostgreSQL + SQL Server), cross-platform (Windows/Linux/RPi).</p>
+                        <p class="slide-detail__desc" data-i18n="slide.1.desc">Physical access control system — turnstiles, doors, gates with QR/NFC/Card/Face auth. 19 entity domains including AccessControl, Tenancy, Licensing, Visitor Management, Alerts, Analytics, Sanctions. AccessEngine + RuleEvaluator + DirectionResolver pipeline. Multi-database (PostgreSQL + SQL Server), cross-platform (Windows/Linux/RPi).</p>
                         <div class="slide-detail__techs">ASP.NET Core &middot; .NET 10 &middot; EF Core &middot; PostgreSQL &middot; SQL Server &middot; Docker Swarm</div>
-                        <div class="slide-detail__stats">14,704 lines C# &middot; 19 domains &middot; Production at TEXIT</div>
+                        <div class="slide-detail__stats" data-i18n="slide.1.stats">14,704 lines C# &middot; 19 domains &middot; Production at TEXIT</div>
                     </div>
                 </div>
                 <div class="slider__item">
                     <div class="slide-detail">
-                        <p class="slide-detail__desc">Multi-tenant CRM platform — Customers, Sales pipelines, Billing, Subscriptions, Marketing, Projects, Compliance, Templates. Same Clean Architecture as texit-access. 14 service modules, CachedRepository, encryption, audit logging.</p>
+                        <p class="slide-detail__desc" data-i18n="slide.2.desc">Multi-tenant CRM platform — Customers, Sales pipelines, Billing, Subscriptions, Marketing, Projects, Compliance, Templates. Same Clean Architecture as texit-access. 14 service modules, CachedRepository, encryption, audit logging.</p>
                         <div class="slide-detail__techs">ASP.NET Core &middot; EF Core &middot; Redis &middot; Repository + UoW &middot; JWT &middot; Multi-tenant</div>
-                        <div class="slide-detail__stats">6,876 lines C# &middot; 98 service files &middot; 14 modules</div>
+                        <div class="slide-detail__stats" data-i18n="slide.2.stats">6,876 lines C# &middot; 98 service files &middot; 14 modules</div>
                     </div>
                 </div>
                 <div class="slider__item">
                     <div class="slide-detail">
-                        <p class="slide-detail__desc">Dormimy — dormitory management extension for texit-access. VisitorAccessEngine with VisitorPass, VisitorCategory, VisitorAccessRule system. Category-based rule mapping for dormitory entry/exit control. Currently in active development.</p>
+                        <p class="slide-detail__desc" data-i18n="slide.3.desc">Dormimy — dormitory management extension for texit-access. VisitorAccessEngine with VisitorPass, VisitorCategory, VisitorAccessRule system. Category-based rule mapping for dormitory entry/exit control. Currently in active development.</p>
                         <div class="slide-detail__techs">ASP.NET Core &middot; Dormimy.Domain &middot; VisitorManagement &middot; SignalR</div>
-                        <div class="slide-detail__stats">Active development &middot; Extending texit-access platform</div>
+                        <div class="slide-detail__stats" data-i18n="slide.3.stats">Active development &middot; Extending texit-access platform</div>
                     </div>
                 </div>
                 <div class="slider__item">
                     <div class="slide-detail">
-                        <p class="slide-detail__desc">4 SignalR hubs — AccessPointHub (gate control), TenantAdminHub, PlatformAdminHub, AiHub. Session managers for card writing, face enrollment, terminal sessions. Custom DormimyEvictionHandler, DormimyUserIdProvider, Hub filters.</p>
+                        <p class="slide-detail__desc" data-i18n="slide.4.desc">4 SignalR hubs — AccessPointHub (gate control), TenantAdminHub, PlatformAdminHub, AiHub. Session managers for card writing, face enrollment, terminal sessions. Custom DormimyEvictionHandler, DormimyUserIdProvider, Hub filters.</p>
                         <div class="slide-detail__techs">SignalR &middot; WebSocket &middot; JWT &middot; Hub Filters &middot; BLE Token &middot; QR Token</div>
-                        <div class="slide-detail__stats">QR / NFC / Card / Face / BLE auth modes</div>
+                        <div class="slide-detail__stats" data-i18n="slide.4.stats">QR / NFC / Card / Face / BLE auth modes</div>
                     </div>
                 </div>
                 <div class="slider__item">
                     <div class="slide-detail">
-                        <p class="slide-detail__desc">Docker Swarm deployment to GHCR. CI/CD via GitHub Actions — build, test, push, rolling deploy. CachedRepository decorator with CacheConfigResolver — per-entity Redis/InMemory hybrid. Auto-invalidation on writes via UnitOfWork.</p>
+                        <p class="slide-detail__desc" data-i18n="slide.5.desc">Docker Swarm deployment to GHCR. CI/CD via GitHub Actions — build, test, push, rolling deploy. CachedRepository decorator with CacheConfigResolver — per-entity Redis/InMemory hybrid. Auto-invalidation on writes via UnitOfWork.</p>
                         <div class="slide-detail__techs">Docker Swarm &middot; GHCR &middot; GitHub Actions &middot; Redis &middot; nginx &middot; secrets</div>
-                        <div class="slide-detail__stats">ghcr.io/feedemy/texit-access &middot; Zero-downtime deploys</div>
+                        <div class="slide-detail__stats" data-i18n="slide.5.stats">ghcr.io/feedemy/texit-access &middot; Zero-downtime deploys</div>
                     </div>
                 </div>
                 <div class="slider__item">
                     <div class="slide-detail">
-                        <p class="slide-detail__desc">Factory-pattern encryption with tenant-scoped keys. PII protection (KVKK/GDPR). OpenTelemetry OTLP to Grafana Cloud. Serilog LoggerMessage source generators. xUnit tests with NSubstitute. Full distributed tracing across hubs, EF, Redis.</p>
+                        <p class="slide-detail__desc" data-i18n="slide.6.desc">Factory-pattern encryption with tenant-scoped keys. PII protection (KVKK/GDPR). OpenTelemetry OTLP to Grafana Cloud. Serilog LoggerMessage source generators. xUnit tests with NSubstitute. Full distributed tracing across hubs, EF, Redis.</p>
                         <div class="slide-detail__techs">AES &middot; HMAC &middot; OpenTelemetry &middot; Grafana &middot; Serilog &middot; xUnit</div>
-                        <div class="slide-detail__stats">Encryption + Observability + Testing pipeline</div>
+                        <div class="slide-detail__stats" data-i18n="slide.6.stats">Encryption + Observability + Testing pipeline</div>
                     </div>
                 </div>
             </div>
@@ -203,11 +208,11 @@
         <!-- NUMBERS BAR -->
         <section class="numbers">
             <div class="numbers__inner">
-                <div class="number-item"><span class="number-item__val">21.5K+</span><span class="number-item__label">Lines of C#</span></div>
-                <div class="number-item"><span class="number-item__val">3</span><span class="number-item__label">Production Systems</span></div>
-                <div class="number-item"><span class="number-item__val">19</span><span class="number-item__label">Entity Domains</span></div>
-                <div class="number-item"><span class="number-item__val">98+</span><span class="number-item__label">Service Files</span></div>
-                <div class="number-item"><span class="number-item__val">4</span><span class="number-item__label">SignalR Hubs</span></div>
+                <div class="number-item"><span class="number-item__val">21.5K+</span><span class="number-item__label" data-i18n="num.lines">Lines of C#</span></div>
+                <div class="number-item"><span class="number-item__val">3</span><span class="number-item__label" data-i18n="num.systems">Production Systems</span></div>
+                <div class="number-item"><span class="number-item__val">19</span><span class="number-item__label" data-i18n="num.domains">Entity Domains</span></div>
+                <div class="number-item"><span class="number-item__val">98+</span><span class="number-item__label" data-i18n="num.services">Service Files</span></div>
+                <div class="number-item"><span class="number-item__val">4</span><span class="number-item__label" data-i18n="num.hubs">SignalR Hubs</span></div>
             </div>
         </section>
 
@@ -215,18 +220,18 @@
         <section class="section" id="about">
             <div class="section__inner section__two-col">
                 <div class="section__left">
-                    <div class="section__label">About</div>
+                    <div class="section__label" data-i18n="about.label">About</div>
                     <h2 class="section__title">Serhat<br>Sahin</h2>
-                    <p class="section__subtitle">.NET Backend Engineer</p>
+                    <p class="section__subtitle" data-i18n="about.subtitle">.NET Backend Engineer</p>
                 </div>
                 <div class="section__right">
-                    <p class="section__body">I've been working on programming since 2020, exploring different languages and technologies along the way. Over time, I found my direction in backend engineering — specifically .NET and building scalable enterprise systems.</p>
-                    <p class="section__body">Today, I specialize in designing multi-tenant platforms with ASP.NET Core, Clean Architecture, and Domain-Driven Design. I've shipped production systems handling real-time access control, CRM workflows, caching layers, and containerized deployments — writing 21,500+ lines of production C# so far.</p>
-                    <p class="section__body">I work across the full backend stack: domain modeling, database design, API architecture, real-time communication with SignalR, Redis caching, Docker Swarm deployments, CI/CD pipelines, and observability with OpenTelemetry. I'm still learning new things and continuing to expand my knowledge — that part hasn't changed.</p>
+                    <p class="section__body" data-i18n="about.p1">I've been working on programming since 2020, exploring different languages and technologies along the way. Over time, I found my direction in backend engineering — specifically .NET and building scalable enterprise systems.</p>
+                    <p class="section__body" data-i18n="about.p2">Today, I specialize in designing multi-tenant platforms with ASP.NET Core, Clean Architecture, and Domain-Driven Design. I've shipped production systems handling real-time access control, CRM workflows, caching layers, and containerized deployments — writing 21,500+ lines of production C# so far.</p>
+                    <p class="section__body" data-i18n="about.p3">I work across the full backend stack: domain modeling, database design, API architecture, real-time communication with SignalR, Redis caching, Docker Swarm deployments, CI/CD pipelines, and observability with OpenTelemetry. I'm still learning new things and continuing to expand my knowledge — that part hasn't changed.</p>
                     <div class="meta-grid">
-                        <div class="meta-item"><span class="meta-label">Education</span><span class="meta-value">OSTiM Technical University<br>Software Engineering, 2021-2025<br>GPA 3.00</span></div>
-                        <div class="meta-item"><span class="meta-label">Location</span><span class="meta-value">Ankara, Turkey</span></div>
-                        <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value">Open to work<br>On-site / Hybrid / Remote</span></div>
+                        <div class="meta-item"><span class="meta-label" data-i18n="about.edu">Education</span><span class="meta-value" data-i18n-html="about.edu.val">OSTiM Technical University<br>Software Engineering, 2021-2025<br>GPA 3.00</span></div>
+                        <div class="meta-item"><span class="meta-label" data-i18n="about.loc">Location</span><span class="meta-value" data-i18n="about.loc.val">Ankara, Turkey</span></div>
+                        <div class="meta-item"><span class="meta-label" data-i18n="about.status">Status</span><span class="meta-value" data-i18n-html="about.status.val">Open to work<br>On-site / Hybrid / Remote</span></div>
                     </div>
                 </div>
             </div>
@@ -235,19 +240,19 @@
         <!-- SKILLS -->
         <section class="section section--dark" id="skills">
             <div class="section__inner">
-                <div class="section__label">Tech Stack</div>
-                <h2 class="section__title">What I<br>work with</h2>
+                <div class="section__label" data-i18n="skills.label">Tech Stack</div>
+                <h2 class="section__title" data-i18n-html="skills.title">What I<br>work with</h2>
                 <div class="skills-grid">
                     <div class="skill-group">
-                        <h3 class="skill-group__title">Core — .NET Backend</h3>
+                        <h3 class="skill-group__title" data-i18n="skills.core">Core — .NET Backend</h3>
                         <div class="skill-tags"><span>C#</span><span>.NET 10</span><span>ASP.NET Core</span><span>Entity Framework Core</span><span>Clean Architecture</span><span>DDD</span><span>CQRS</span><span>Repository + UoW</span><span>REST APIs</span><span>JWT Auth</span><span>KVKK/GDPR</span></div>
                     </div>
                     <div class="skill-group">
-                        <h3 class="skill-group__title">Data, Infra & DevOps</h3>
+                        <h3 class="skill-group__title" data-i18n="skills.infra">Data, Infra & DevOps</h3>
                         <div class="skill-tags"><span>PostgreSQL</span><span>SQL Server</span><span>Redis</span><span>SignalR</span><span>Docker</span><span>Docker Swarm</span><span>GitHub Actions</span><span>CI/CD</span><span>OpenTelemetry</span><span>Serilog</span><span>xUnit</span></div>
                     </div>
                     <div class="skill-group">
-                        <h3 class="skill-group__title">Also Experienced</h3>
+                        <h3 class="skill-group__title" data-i18n="skills.other">Also Experienced</h3>
                         <div class="skill-tags"><span>Python</span><span>C/C++</span><span>Flutter / Dart</span><span>Blazor / WASM</span><span>Machine Learning</span><span>Arduino / Embedded</span></div>
                     </div>
                 </div>
@@ -257,28 +262,28 @@
         <!-- EXPERIENCE -->
         <section class="section" id="experience">
             <div class="section__inner">
-                <div class="section__label">Career</div>
-                <h2 class="section__title">Experience</h2>
+                <div class="section__label" data-i18n="career.label">Career</div>
+                <h2 class="section__title" data-i18n="career.title">Experience</h2>
                 <div class="timeline">
                     <a href="#" class="timeline__item">
-                        <div class="timeline__left"><span class="timeline__date">Dec 2025 — Present</span><span class="timeline__badge">Current</span></div>
-                        <div class="timeline__right"><span class="timeline__role">Software Engineer Backend Developer</span><span class="timeline__company">TEXIT &middot; Full-time &middot; Hybrid</span><span class="timeline__desc">Built texit-access (Dormimy) — physical access control system. 14.7K+ lines C#, multi-tenant, Docker Swarm, Grafana.</span></div>
+                        <div class="timeline__left"><span class="timeline__date">Dec 2025 — Present</span><span class="timeline__badge" data-i18n="exp.badge">Current</span></div>
+                        <div class="timeline__right"><span class="timeline__role" data-i18n="exp.texit.role">Software Engineer Backend Developer</span><span class="timeline__company" data-i18n="exp.texit.company">TEXIT &middot; Full-time &middot; Hybrid</span><span class="timeline__desc" data-i18n="exp.texit.desc">Built texit-access (Dormimy) — physical access control system. 14.7K+ lines C#, multi-tenant, Docker Swarm, Grafana.</span></div>
                     </a>
                     <a href="#" class="timeline__item">
                         <div class="timeline__left"><span class="timeline__date">Feb — Jun 2025</span></div>
-                        <div class="timeline__right"><span class="timeline__role">Software Engineer Intern</span><span class="timeline__company">Utarit Bilisim &middot; On-site</span><span class="timeline__desc">Test Engineer + .NET Developer. Built SoliNova (Flutter). Automated testing with Appium.</span></div>
+                        <div class="timeline__right"><span class="timeline__role" data-i18n="exp.utarit.role">Software Engineer Intern</span><span class="timeline__company" data-i18n="exp.utarit.company">Utarit Bilisim &middot; On-site</span><span class="timeline__desc" data-i18n="exp.utarit.desc">Test Engineer + .NET Developer. Built SoliNova (Flutter). Automated testing with Appium.</span></div>
                     </a>
                     <a href="#" class="timeline__item">
                         <div class="timeline__left"><span class="timeline__date">Jan — Feb 2025</span></div>
-                        <div class="timeline__right"><span class="timeline__role">Software Engineer Intern</span><span class="timeline__company">AVS Muhendislik &middot; Hybrid</span><span class="timeline__desc">Embedded systems — injector pump, blood serum heater. Arduino + C++ hardware integration.</span></div>
+                        <div class="timeline__right"><span class="timeline__role" data-i18n="exp.avs.role">Software Engineer Intern</span><span class="timeline__company" data-i18n="exp.avs.company">AVS Muhendislik &middot; Hybrid</span><span class="timeline__desc" data-i18n="exp.avs.desc">Embedded systems — injector pump, blood serum heater. Arduino + C++ hardware integration.</span></div>
                     </a>
                     <a href="#" class="timeline__item">
                         <div class="timeline__left"><span class="timeline__date">Dec 2022 — Jul 2023</span></div>
-                        <div class="timeline__right"><span class="timeline__role">Software Engineer Intern</span><span class="timeline__company">QUAVIS Aviation Solutions &middot; Hybrid</span><span class="timeline__desc">Blazor WebAssembly app for aviation. Interactive UI with .NET backend.</span></div>
+                        <div class="timeline__right"><span class="timeline__role" data-i18n="exp.quavis.role">Software Engineer Intern</span><span class="timeline__company" data-i18n="exp.quavis.company">QUAVIS Aviation Solutions &middot; Hybrid</span><span class="timeline__desc" data-i18n="exp.quavis.desc">Blazor WebAssembly app for aviation. Interactive UI with .NET backend.</span></div>
                     </a>
                     <a href="#" class="timeline__item">
                         <div class="timeline__left"><span class="timeline__date">Jun — Jul 2022</span></div>
-                        <div class="timeline__right"><span class="timeline__role">Software Engineer Intern</span><span class="timeline__company">Ikartu Dinamik &middot; Remote</span><span class="timeline__desc">C/C++ project development.</span></div>
+                        <div class="timeline__right"><span class="timeline__role" data-i18n="exp.ikartu.role">Software Engineer Intern</span><span class="timeline__company" data-i18n="exp.ikartu.company">Ikartu Dinamik &middot; Remote</span><span class="timeline__desc" data-i18n="exp.ikartu.desc">C/C++ project development.</span></div>
                     </a>
                 </div>
             </div>
@@ -287,21 +292,21 @@
         <!-- CONTACT -->
         <section class="section section--dark section--contact" id="contact">
             <div class="section__inner">
-                <div class="section__label">Get in touch</div>
-                <h2 class="section__title contact__title">Let's build<br>something<br>together.</h2>
+                <div class="section__label" data-i18n="contact.label">Get in touch</div>
+                <h2 class="section__title contact__title" data-i18n-html="contact.title">Let's build<br>something<br>together.</h2>
                 <div class="contact-links">
-                    <a href="mailto:yusufserhatsahin@mail.com" class="contact-link">
-                        <span class="contact-link__label">Email</span>
-                        <span class="contact-link__value">yusufserhatsahin@mail.com</span>
+                    <a href="mailto:yusufserhatsahin@gmail.com" class="contact-link">
+                        <span class="contact-link__label" data-i18n="contact.email">Email</span>
+                        <span class="contact-link__value">yusufserhatsahin@gmail.com</span>
                         <span class="contact-link__arrow">&nearr;</span>
                     </a>
                     <a href="https://www.linkedin.com/in/serhatsahincoder/" target="_blank" class="contact-link">
-                        <span class="contact-link__label">LinkedIn</span>
+                        <span class="contact-link__label" data-i18n="contact.linkedin">LinkedIn</span>
                         <span class="contact-link__value">/in/serhatsahincoder</span>
                         <span class="contact-link__arrow">&nearr;</span>
                     </a>
                     <a href="https://github.com/SerhatITO" target="_blank" class="contact-link">
-                        <span class="contact-link__label">GitHub</span>
+                        <span class="contact-link__label" data-i18n="contact.github">GitHub</span>
                         <span class="contact-link__value">serhatsahincoder</span>
                         <span class="contact-link__arrow">&nearr;</span>
                     </a>
@@ -312,13 +317,14 @@
         <!-- FOOTER -->
         <footer class="site-footer">
             <span>&copy; 2026 Serhat Sahin</span>
-            <span class="site-footer__tagline">Crafted with precision</span>
+            <span class="site-footer__tagline" data-i18n="footer.tagline">Crafted with precision</span>
             <span>Ankara, Turkey</span>
         </footer>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="i18n.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
